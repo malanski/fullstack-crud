@@ -1,0 +1,30 @@
+.home {
+    h2 {
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .homeImage {
+        display: flex;
+    
+        img {
+            width: 90%;
+        }
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+    .home {
+        padding: 0;
+        .homeImage {
+            display: flex;
+            flex-wrap: wrap;
+            img {
+                // max-width: 25%;
+                margin: 0 auto;
+            }
+        }       
+    }
+}

@@ -1,0 +1,146 @@
+.about {
+    width: auto;
+    // display: flex;
+    // justify-content: center;
+    // align-items: flex-start;
+    .about-card {
+        min-width: 385px;
+        max-width: 800px;
+        margin: 20px auto 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        border: 1px solid black;
+        padding: 5px 10px;
+        background: #f4fbff;
+        ul {
+            text-align: left;
+            li {
+                margin: 5px;
+            }
+        }
+        .about-card-section {
+            width: 100%;
+            img {
+                width: 70%;
+                margin: 20px auto 0 auto;
+
+            }
+        }
+    }
+    .logo-image {
+        width: 100%;
+    }
+    h2 {
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    p {
+        width: 90%;
+        text-align: justify;
+        margin: 0 5px 0 0;
+        padding: 0 5px 0 0;
+    }
+    .aboutImage {
+        display: flex;
+        align-items: center;
+        padding: 0 5px 0 0;
+
+        
+        img {
+            width: 90%;
+            margin: 0;
+        }
+    }
+
+}
+
+@media screen and (max-width: 1025px) {
+    .about {
+        width: 100%;
+        
+    }
+}
+@media screen and (max-width: 956px) {
+    .about {
+        width: 100%;
+        .about-card {
+            ul {
+                li {
+                    margin: 0;
+                }
+            }
+        }
+        .aboutImage {
+            
+            flex-wrap: wrap;
+            img {
+                margin: auto;
+            }
+
+        }       
+    }
+}
+@media screen and (max-width: 786px) {
+    .about {
+        flex-direction: column;
+        gap: 30px;
+        .aboutImage {
+            // width: 50%;
+            flex-wrap: wrap;
+
+        }       
+    }
+}
+@media screen and (max-width: 500px) {
+    .about {
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+        .about-card{
+            .about-card-section {
+                p{
+                    width: 90%;
+                }
+                img {
+                    width: 90%;
+                }
+            }
+        }
+        .aboutImage {
+            // width: 50%;
+            flex-wrap: wrap;
+
+        }       
+    }
+}
+@media screen and (max-width: 386px) {
+    .about {
+        flex-direction: column;
+        padding: 0;
+        width: 100vw;
+
+        .about-card {
+            min-width: 60%;
+            margin: 0;
+            border: none;
+            padding: 0;
+            p{
+                font-size: 15px;
+                width: 94%;
+                margin: 0 5px 0 5px;
+                padding: 0;
+            }
+        }
+        
+        .aboutImage {
+            // width: 50%;
+            flex-wrap: wrap;
+
+        }       
+    }
+}

@@ -1,0 +1,29 @@
+.patients-view {
+    // width: 100%;
+    // padding: 10px;
+    
+    h2 {
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .patients-view-list {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 20px;
+        width: 90%;
+        margin: 10px auto 0 auto;
+        transition: all ease-in-out 0.5s;
+        div:hover {
+            background-color: #ebf7ff;
+            transition: all ease-in-out 0.5s;
+
+        }
+    }
+
+    
+}
