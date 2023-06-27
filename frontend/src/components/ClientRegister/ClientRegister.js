@@ -114,7 +114,6 @@ export function ClientRegister() {
     //     const dataBirthDate = getValues('birthDate');
     //     const birthDate = dataBirthDate.split('-');
     //     const newBirthDate = `${birthDate[2]}-${birthDate[1]}-${birthDate[0]}`;
-
     //     const dataRegister = {
     //         name: data.clientName,
     //         birthDate: newBirthDate,
@@ -128,7 +127,6 @@ export function ClientRegister() {
     //             addition: data.addition,
     //         },
     //     };
-        
     //     await ClientApi.registerClient(dataRegister);
     //     navigate('/viewClients')
     // }
