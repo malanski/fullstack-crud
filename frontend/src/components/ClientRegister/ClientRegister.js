@@ -151,8 +151,20 @@ export function ClientRegister() {
             },
         };
     
-        await ClientApi.registerClient(dataRegister);
-        navigate('/viewClients')
+        // await ClientApi.registerClient(dataRegister);
+        // navigate('/viewClients')
+        try {
+            await ClientApi.registerClient(dataRegister);
+            navigate('/viewClients')
+        } catch (error) {
+            if (error.response && error.response.data && error.response.data.message) {
+                // Exibe a mensagem de erro retornada pelo servidor
+                alert(error.response.data.message);
+            } else {
+                // Exibe uma mensagem de erro genérica
+                alert('An error occurred while registering the client, try a different name and email');
+            }
+        }
     }
 
     return (
