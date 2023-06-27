@@ -20,7 +20,7 @@ const CardStyles = styled("div")(({ theme }) => ({
   borderRadius: '5px',
   width: '300px',
   padding: '10px',
-  background: 'white',
+  background: 'black',
   
   div: {
     background: '#e3f4ff',
