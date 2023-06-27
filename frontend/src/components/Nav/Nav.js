@@ -30,13 +30,13 @@ export function Nav() {
                 
             </CustomLink>
 
-            <CustomLink title="Add new Patient" to="/register">
-                <span className='nav-links'>New Patient&ensp;<AddIcon /></span>
+            <CustomLink title="Add new Client" to="/register">
+                <span className='nav-links'>New Client&ensp;<AddIcon /></span>
 
             </CustomLink>
 
-            <CustomLink title="View All Patients" to="/viewPatients">
-                <span className='nav-links'>View Patients&ensp;<FormatListNumberedIcon /></span>
+            <CustomLink title="View All Clients" to="/viewClients">
+                <span className='nav-links'>View Clients&ensp;<FormatListNumberedIcon /></span>
 
             </CustomLink>
         </nav>

@@ -1,5 +1,5 @@
 // API
-import { PatientApi } from '../../services/api';
+import { ClientApi } from '../../services/api';
 
 // Icons
 import EditIcon from '@mui/icons-material/Edit';
@@ -24,22 +24,21 @@ const today = new Date();
 
 // Form validation schema
 const schema = yup.object().shape({
-    patientName: yup.string().min(2, "Patient name should have 2 characters or more")
-        .max(70, "Patient name should be at maximum 70 characters long").required("Patient name should be required"),
-    birthDate: yup.date().max(today, "Patient birth date must be earlier than today").required("Patient birth date should be required"),
-    patientEmail: yup.string().email("Please inset a valid email!").required("Patient email should be required!"),
+    clientName: yup.string().min(2, "Client name should have 2 characters or more")
+        .max(70, "Client name should be at maximum 70 characters long").required("Client name should be required"),
+    birthDate: yup.date().max(today, "Client birth date must be earlier than today").required("Client birth date should be required"),
+    clientEmail: yup.string().email("Please inset a valid email!").required("Client email should be required!"),
 
     // Address Validation
-    country: yup.string().required("Patient Country should be required!"),
-    zipCode: yup.number().required("Patient Zip Code should be required!"),
-    county: yup.string().required("Patient county should be required!"),
-    city: yup.string().required("Patient city name should be required!"),
-    streetAddress: yup.string().required("Patient street address should be required!"),
+    country: yup.string().required("Client Country should be required!"),
+    zipCode: yup.number().required("Client Zip Code should be required!"),
+    county: yup.string().required("Client county should be required!"),
+    city: yup.string().required("Client city name should be required!"),
+    streetAddress: yup.string().required("Client street address should be required!"),
     addition: yup.string(),
 })
 
-
-const FormStyles = styled("section")(({ theme }) => ({
+const EditStyles = styled("section")(({ theme }) => ({
     width: '100%',
     color: 'white',
 
@@ -48,7 +47,7 @@ const FormStyles = styled("section")(({ theme }) => ({
         padding: '20px',
         border: '1px solid rgb(167, 167, 167)',
         borderRadius: '10px',
-        background: '#d9ecf9',
+        background: 'grey',
         h3: {
             textAlign: 'left',
         },
@@ -60,18 +59,30 @@ const FormStyles = styled("section")(({ theme }) => ({
         div: {
             width: '100%',
             position: 'relative',
+            backgroundColor: 'black',
+            borderRadius: '10px 5px',
+            padding:'0 2px',
             div: {
+
                 label: {
-                    textAlign: 'center',
+                    
+                    // textAlign: 'center',
                     width: '100%',
-                    marginLeft: '-2px',
-                    borderRadius: '10px 10px 0 0',
-                    background: '#F4F7FC',
+                    // marginLeft: '-2px',
+                    // opacity: '0.5',
+                    color: 'blue',
+                    textAlign:'right',
+                    // lineHeight: '-350px'
                 },
                 div: {
+                    opacity: '0.5',
                     background: '#F4F7FC',
                     marginBottom: '11px',
                     height: 'auto',
+                    padding:'5px 2px',
+                    borderRadius: '10px',
+
+
                 },
             },
         }
@@ -89,7 +100,7 @@ const FormStyles = styled("section")(({ theme }) => ({
 }));
 
 
-export const EditPatient = () => {
+export const EditClient = () => {
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -107,9 +118,9 @@ export const EditPatient = () => {
         const newBirthDate = `${birthDate[2]}-${birthDate[1]}-${birthDate[0]}`;
 
         const dataUpdate = {
-            name: data.patientName,
+            name: data.clientName,
             birthDate: newBirthDate,
-            email: data.patientEmail,
+            email: data.clientEmail,
             address: {
                 zipCode: data.zipCode,
                 country: data.country,
@@ -119,8 +130,8 @@ export const EditPatient = () => {
                 addition: data.addition,
             },
         };
-        await PatientApi.updatePatient(id, dataUpdate);
-        navigate('/viewPatients')
+        await ClientApi.updateClient(id, dataUpdate);
+        navigate('/viewClients')
     }
 
     const [state, setState] = useState({
@@ -131,15 +142,15 @@ export const EditPatient = () => {
     });
 
     useEffect(() => {
-        PatientApi.getPatientById(id)
+        ClientApi.getClientById(id)
             .then((response) => {
-                const patient = response.data.patient;
+                const client = response.data.client;
                 setState({
-                    _id: patient._id,
-                    name: patient.name,
-                    email: patient.email,
-                    birthDate: patient.birthDate,
-                    address: patient.address,
+                    _id: client._id,
+                    name: client.name,
+                    email: client.email,
+                    birthDate: client.birthDate,
+                    address: client.address,
                 });
             })
             .catch(function (error) {
@@ -149,8 +160,8 @@ export const EditPatient = () => {
 
     useEffect(() => {
         let defaultValues = {};
-        defaultValues.patientName = state.name;
-        defaultValues.patientEmail = state.email;
+        defaultValues.clientName = state.name;
+        defaultValues.clientEmail = state.email;
         defaultValues.birthDate = state.birthDate;
         defaultValues.zipCode = state.address.zipCode;
         defaultValues.country = state.address.country;
@@ -163,10 +174,10 @@ export const EditPatient = () => {
 
     return (
         <div>
-            <FormStyles >
+            <EditStyles >
                 <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
                     <h2>
-                        <EditIcon />&ensp;Edit Patient Data&ensp;<EditIcon />
+                        <EditIcon />&ensp;Edit Client Data&ensp;<EditIcon />
                     </h2>
 
                 </div>
@@ -177,20 +188,22 @@ export const EditPatient = () => {
                     sx={{
                         margin: '31px auto 30px auto',
                     }}>
-                    <div>
-                        <TextField
-                            variant="outlined"
+                    <div style={EditStyles.inputCustom}>
+                        <TextField 
+                            variant="standard"
                             required
-                            htmlFor='patientName'
-                            name='patientName'
-                            label='Patien Name '
-                            {...register('patientName')} />
-                        <p> {errors.patientName?.message} </p>
+                            htmlFor='clientName'
+                            name='clientName'
+                            label='Client Name '
+                            // helperText= 'Client Name'
+                            defaultValue={state.name}
+                            {...register('clientName')} />
+                        <p> {errors.clientName?.message} </p>
                     </div>
 
                     <div>
                         <TextField
-                            variant="outlined"
+                            variant="standard"
                             required
                             htmlFor='birthDate'
                             name='birthDate'
@@ -202,19 +215,19 @@ export const EditPatient = () => {
 
                     <div>
                         <TextField
-                            variant="outlined"
+                            variant="standard"
                             required
-                            htmlFor='patientEmail'
-                            name='patientEmail'
+                            htmlFor='clientEmail'
+                            name='clientEmail'
                             label='Email '
-                            {...register('patientEmail')} />
-                        <p> {errors.patientEmail?.message} </p>
+                            {...register('clientEmail')} />
+                        <p> {errors.clientEmail?.message} </p>
                     </div>
 
-                    <h3>Patient Address</h3>
+                    <h3>Client Address</h3>
                     <div>
                         <TextField
-                            variant="outlined"
+                            variant="standard"
                             required
                             htmlFor='zipCode'
                             name='zipCode'
@@ -226,7 +239,7 @@ export const EditPatient = () => {
 
                     <div>
                         <TextField
-                            variant="outlined"
+                            variant="standard"
                             required
                             htmlFor='country'
                             name='country'
@@ -238,19 +251,19 @@ export const EditPatient = () => {
 
                     <div>
                         <TextField
-                            variant="outlined"
+                            variant="standard"
                             required
                             htmlFor='county'
                             name='county'
                             label='County '
-                            placeholder={state.address.county}
+                            value={state.address.county}
                             {...register('county')} />
                         <p> {errors.county?.message} </p>
                     </div>
 
                     <div>
                         <TextField
-                            variant="outlined"
+                            variant="standard"
                             required
                             htmlFor='city'
                             name='city'
@@ -262,7 +275,7 @@ export const EditPatient = () => {
 
                     <div>
                         <TextField
-                            variant="outlined"
+                            variant="standard"
                             required
                             htmlFor='streetAddress'
                             name='streetAddress'
@@ -274,7 +287,7 @@ export const EditPatient = () => {
 
                     <div>
                         <TextField
-                            variant="outlined"
+                            variant="standard"
                             htmlFor='addition'
                             name='addition'
                             label='Apt, suite, etc (optional)'
@@ -288,7 +301,7 @@ export const EditPatient = () => {
                         justifyContent: 'space-between',
                         alignItems: 'center'
                     }}>
-                        <Button onClick={() => navigate(`/patient/${id}`)}
+                        <Button onClick={() => navigate(`/client/${id}`)}
                             title={`Back to ${state.name} page`}>
                             <KeyboardDoubleArrowLeftIcon />
                             Back
@@ -296,7 +309,7 @@ export const EditPatient = () => {
                         <Button
                             variant="contained"
                             type='submit'
-                            title='Update patient data'
+                            title='Update client data'
                             sx={{
                                 width: '183px',
                                 margins: '0 auto',
@@ -316,7 +329,7 @@ export const EditPatient = () => {
                         </Button>
                     </div>
                 </Box>
-            </FormStyles>
+            </EditStyles>
 
         </div>
     )

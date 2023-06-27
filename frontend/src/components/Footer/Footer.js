@@ -1,7 +1,7 @@
 import './Footer.scss'
 
 // Assetes Images
-import medcloudLogo2 from '../../assets/images/medcloud2.png'
+import webloudLogo2 from '../../assets/images/webcloud2.png'
 
 // Icon
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -40,7 +40,7 @@ export function Footer() {
                     </li>
                 </ul>
                 <div className='logoFooter'>
-                    <img src={medcloudLogo2} title='Medcloud' alt='Medcloud logo'></img>
+                    <img src={webloudLogo2} title='Medcloud' alt='Medcloud logo'></img>
                 </div>
             </div>
             <br></br>

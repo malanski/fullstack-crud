@@ -2,7 +2,7 @@ import './Header.scss';
 import { Link } from 'react-router-dom';
 
 // Assets Images
-import medcloudLogo from '../../assets/images/medcloud.png';
+import medcloudLogo from '../../assets/images/webcloud.png';
 
 // Components
 import { Nav } from '../Nav';

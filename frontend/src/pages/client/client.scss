@@ -1,4 +1,4 @@
-.patient {
+.client {
     border: 1px solid #3497DE;
     border-radius: 10px;
     margin: 10px auto;
@@ -18,16 +18,16 @@
         padding: 5px;
     }
 
-    .patient-data {
+    .client-data {
         text-align: left;
         padding: 0 10px;
 
-        .patient-right {
+        .client-right {
             text-align: right;
         }
 
 
-        .patient-name {
+        .client-name {
             text-align: center;
             background: white;
             padding: 10px;
@@ -35,7 +35,7 @@
 
         }
 
-        .patient-email {
+        .client-email {
             text-align: center;
             background: white;
             padding: 10px;
@@ -57,7 +57,7 @@
 
         }
 
-        .patient-actions {
+        .client-actions {
             display: flex;
             justify-content: space-between;
             background-color: #d6efff;

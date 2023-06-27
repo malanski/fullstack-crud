@@ -1,10 +1,10 @@
 // Components
-import { PatientRegister } from "../../components/PatientRegister/PatientRegister"
+import { ClientRegister } from "../../components/ClientRegister/ClientRegister"
 
-export const Register = (props) => {
+export const Register = () => {
     return (
         <div>
-             <PatientRegister component={PatientRegister} exact />
+             <ClientRegister component={ClientRegister} exact />
         </div>
     )
 }

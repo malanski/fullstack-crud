@@ -6,7 +6,7 @@ import StorefrontIcon from '@mui/icons-material/Storefront';
 import CloudCircleIcon from '@mui/icons-material/CloudCircle';
 
 // Assets Images
-import logo from '../../assets/images/medcloud.png'
+import logo from '../../assets/images/webcloud.png'
 import print1 from '../../assets/images/page-home.png'
 import print2 from '../../assets/images/page-list-view.png'
 import print3 from '../../assets/images/page-patient.png'

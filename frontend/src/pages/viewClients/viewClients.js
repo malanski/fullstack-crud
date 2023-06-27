@@ -1,10 +1,10 @@
-import './viewPatients.scss';
+import './viewClients.scss';
 
 // API
-import { PatientApi } from '../../services/api';
+import { ClientApi } from '../../services/api';
 
 // Components
-import PatientCard from "../../components/PatientCard/PatientCard";
+import ClientCard from "../../components/ClientCard/ClientCard";
 
 // Material UI
 import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
@@ -12,14 +12,14 @@ import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
 // React and Router-Dom
 import { useState, useEffect } from 'react';
 
-export const ViewPatients = () => {
+export const ViewClients = () => {
     let [dataApi, setDataApi] = useState([]);
 
         useEffect(() => {
-            PatientApi.listPatients()
+            ClientApi.listClients()
               .then((response) => {
                 // console.log(response)
-                const data = response.data.patients;
+                const data = response.data.clients;
                 setDataApi(data);
               })
               .catch(function (error) {
@@ -28,13 +28,14 @@ export const ViewPatients = () => {
         }, []);
 
     return (
-        <div className="patients-view">
+        <div className="clients-view">
             <h2>
-                <FormatListNumberedIcon />&ensp;Patients list view&ensp;<FormatListNumberedIcon />
+                <FormatListNumberedIcon />&ensp;Clients list view&ensp;<FormatListNumberedIcon />
             </h2>
 
-            <div className="patients-view-list">
-                {dataApi.map((data, index) => <PatientCard dataApi={data} index={index} />)}
+            <div className="clients-view-list">
+                {dataApi.map((data) => <ClientCard key={data._id} dataApi={data} />)}
+
             </div>
         </div>
     );

@@ -6,7 +6,7 @@ import { theme } from './components/responsive';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 
-// import { PatientRegister } from './components/PatientRegister';
+// import { ClientRegister } from './components/ClientRegister';
 
 
 
@@ -14,9 +14,9 @@ import { Footer } from './components/Footer';
 import { Home } from './pages/home'
 import { About } from './pages/about'
 import { Register } from './pages/register'
-import { ViewPatients } from './pages/viewPatients'
-import { EditPatient } from './pages/editPatient';
-import { Patient } from './pages/patient';
+import { ViewClients } from './pages/viewClients'
+import { EditClient } from './pages/editClient';
+import { Client } from './pages/client';
 
 function App() {
   return (
@@ -31,9 +31,9 @@ function App() {
               <Route path='/' element={<Home />} />
               <Route path='/about' element={<About />} />
               <Route path='/register' element={<Register />} />
-              <Route path='/viewPatients' element={<ViewPatients />} />
-              <Route path='/editPatient/:id' element={<EditPatient />} />
-              <Route path='/patient/:id' element={<Patient />} />
+              <Route path='/viewClients' element={<ViewClients />} />
+              <Route path='/editClient/:id' element={<EditClient />} />
+              <Route path='/client/:id' element={<Client />} />
             </Routes>
           </main>
 

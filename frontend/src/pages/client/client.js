@@ -1,7 +1,7 @@
-import './patient.scss';
+import './client.scss';
 
 // API
-import { PatientApi } from '../../services/api';
+import { ClientApi } from '../../services/api';
 
 // Icons
 import EditIcon from '@mui/icons-material/Edit';
@@ -32,7 +32,7 @@ const style = {
 };
 
 
-export const Patient = () => {
+export const Client = () => {
     const { id } = useParams();
 
     const navigate = useNavigate();
@@ -45,53 +45,53 @@ export const Patient = () => {
     });
 
     useEffect(() => {
-        PatientApi.getPatientById(id)
+        ClientApi.getClientById(id)
             .then((response) => {
-                const patient = response.data.patient;
+                const client = response.data.client;
                 setState({
-                    _id: patient._id,
-                    name: patient.name,
-                    email: patient.email,
-                    birthDate: patient.birthDate,
-                    address: patient.address,
+                    _id: client._id,
+                    name: client.name,
+                    email: client.email,
+                    birthDate: client.birthDate,
+                    address: client.address,
                 });
             }).catch(function (error) {
                 console.log(error);
             });
     }, [id]);
 
-    async function deletePatient(_id) {
-       await PatientApi.deletePatient(id);
-       navigate('/viewPatients');
+    async function deleteClient(_id) {
+       await ClientApi.deleteClient(id);
+       navigate('/viewClients');
     }
 
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     return (
-        <div className="patient">
-            <h2><PersonIcon /> Patient Data <PersonIcon /></h2>
+        <div className="client">
+            <h2><PersonIcon /> Client Data <PersonIcon /></h2>
 
-            <div className="patient-data">
+            <div className="client-data">
                 <hr />
-                <p className='patient-right'><b>Id:</b> {state._id}</p>
+                <p className='client-right'><b>Id:</b> {state._id}</p>
 
                 <div>
                     <p>Name:</p>
-                    <p className="patient-name">
+                    <p className="client-name">
                         {/* <b>{state.name[0].toUpperCase() + state.name.substring(1)}</b> */}
                         <b>{state.name.toUpperCase()}</b>
                     </p>
                 </div>
 
-                <p className='patient-right'>
+                <p className='client-right'>
                     Birth date: <b>{state.birthDate}</b>
                 </p>
                 <hr />
 
                 <div>
                     <p>Email:</p>
-                    <p className="patient-email"> {state.email}</p>
+                    <p className="client-email"> {state.email}</p>
                 </div>
                 <hr />
 
@@ -129,16 +129,16 @@ export const Patient = () => {
                 </ul>
                 <br />
                 <hr />
-                <div className='patient-actions'>
+                <div className='client-actions'>
                     <Button>
-                        <Link to='/viewPatients'><KeyboardDoubleArrowLeftIcon />Back</Link>
+                        <Link to='/viewClients'><KeyboardDoubleArrowLeftIcon />Back</Link>
                     </Button>
 
                     <Button onClick={handleOpen} color="error">
                         <DeleteForeverTwoToneIcon />Delete
                     </Button>
 
-                    <Button onClick={() => navigate(`/editPatient/${id}`)} title={state.name + " Data"}>
+                    <Button onClick={() => navigate(`/editClient/${id}`)} title={state.name + " Data"}>
                         <EditIcon />Edit
                     </Button>
 
@@ -152,7 +152,7 @@ export const Patient = () => {
                                 Waring
                             </Typography>
                             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                                Are you sure you want to <big>Delete</big> this patient record?
+                                Are you sure you want to <big>Delete</big> this client record?
                                 <br /><br />
                                 Name: {state.name}
                                 <br /><br />
@@ -162,9 +162,9 @@ export const Patient = () => {
                                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
 
                                     <Button sx={{ width: '176px', height: '40px', margin: '10px 10px 0 0' }} variant="contained"
-                                        onClick={() => deletePatient()}
+                                        onClick={() => deleteClient()}
                                         color="success"
-                                        title="Delete patient record">
+                                        title="Delete client record">
                                         <DeleteForeverTwoToneIcon />
                                         Confirm Delete
                                     </Button>

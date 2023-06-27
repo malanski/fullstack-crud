@@ -21,6 +21,7 @@ const CardStyles = styled("div")(({ theme }) => ({
   width: '300px',
   padding: '10px',
   background: 'white',
+  
   div: {
     background: '#e3f4ff',
     width: 'auto',
@@ -44,7 +45,7 @@ const CardStyles = styled("div")(({ theme }) => ({
   },
 }));
 
-export default function PatientCard(props) {
+export default function ClientCard(props) {
 
   const {
     _id,
@@ -59,7 +60,7 @@ export default function PatientCard(props) {
       <Card sx={{}} >
         <CardContent>
           <Typography sx={{ fontSize: 14, textAlign: 'right' }} gutterBottom>
-            <small>Patient Id:</small> <br /> <b>{_id}</b>
+            <small>Client Id:</small> <br /> <b>{_id}</b>
           </Typography>
 
           <Typography
@@ -72,7 +73,8 @@ export default function PatientCard(props) {
               height: '75px'
             }} >
             <small>Name: </small> <br />
-            <Typography sx={{ textAlign: 'center' }}>{name}</Typography>
+            <span style={{ textAlign: 'center', background: 'white', }}>{name}</span>
+
           </Typography>
 
           <hr style={{ color: '#2B93DD' }} />
@@ -82,7 +84,7 @@ export default function PatientCard(props) {
           </Typography>
           <Typography sx={{ mb: 1.5, height: '70px' }}>
             <small>Email: </small><br />
-            <p style={{ textAlign: 'center', background: 'white', }}>{email}</p>
+            <span style={{ textAlign: 'center', background: 'white', }}>{email}</span>
           </Typography>
         </CardContent>
 
@@ -93,7 +95,7 @@ export default function PatientCard(props) {
               width:'45%',
               background:'black' 
               }}
-            onClick={() => navigate(`/editPatient/${_id}`)}
+            onClick={() => navigate(`/editClient/${_id}`)}
             title={name + " Data"}>
             <span style={{
               display: 'flex',
@@ -111,9 +113,9 @@ export default function PatientCard(props) {
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center'}}
-            onClick={() => navigate(`/patient/${_id}`)}
+            onClick={() => navigate(`/client/${_id}`)}
             title={ "Data and options" }>
-            Patient <PersonIcon />
+            Client <PersonIcon />
           </Button>
 
         </CardActions>

@@ -2,26 +2,26 @@ import Axios from 'axios';
 
 const axios = Axios.create({
     //LOCAL URL DEVELOPMENT
-    baseURL: 'http://localhost:8000'
+    // baseURL: 'http://localhost:8000'
     
     // Heroku Backend Deploy
-    // baseURL: 'https://my-register-backend.herokuapp.com'
+    baseURL: 'https://my-register-backend.herokuapp.com'
 });
 
-export const PatientApi = {
-    listPatients: () => {
-        return axios.get('/patients');
+export const ClientApi = {
+    listClients: () => {
+        return axios.get('/clients');
     },
-    getPatientById: (id) => {
-        return axios.get(`/patients/${id}`)
+    getClientById: (id) => {
+        return axios.get(`/client/${id}`)
     },
-    registerPatient: (dataRegister) => {
-        return axios.post('/patients', dataRegister)
+    registerClient: (dataRegister) => {
+        return axios.post('/client', dataRegister)
     },
-    updatePatient: (id, dataUpdate) => {
-        return axios.patch(`/patients/${id}`, dataUpdate)
+    updateClient: (id, dataUpdate) => {
+        return axios.patch(`/client/${id}`, dataUpdate)
     },
-    deletePatient: (id) => {
-        return axios.delete(`/patients/${id}`)
+    deleteClient: (id) => {
+        return axios.delete(`/client/${id}`)
     }
 };

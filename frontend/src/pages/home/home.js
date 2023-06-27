@@ -11,11 +11,11 @@ export const Home = (props) => {
     return (
         <div className='home'>
             <h2><HomeTwoToneIcon /> Home <HomeTwoToneIcon /></h2>
-            <h3>Application for registering basic patient data. </h3>
+            <h3>Application for registering basic client data. </h3>
 
             <div className='homeImage'>
-                <img src={doctor} alt='A doctor with his patient'></img>
-                <img src={xray} alt='A doctor with his patient'></img>
+                <img src={doctor} alt='A doctor with his client'></img>
+                <img src={xray} alt='A doctor with his client'></img>
             </div>
         </div>
     )
