@@ -6,7 +6,7 @@ require("dotenv").config();
 const userName = process.env.DB_USER
 const password = process.env.DB_PASS
 
-const url = `mongodb+srv://${userName}:${password}0.eojloz1.mongodb.net/?retryWrites=true&w=majority`;
+const url = `mongodb+srv://${userName}:${password}@cluster0.eojloz1.mongodb.net/?retryWrites=true&w=majority`;
 
 mongoose.connect(url, {},  (error) => {
     if (error) {
