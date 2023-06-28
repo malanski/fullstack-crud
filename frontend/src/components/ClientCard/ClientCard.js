@@ -84,7 +84,6 @@ export default function ClientCard(props) {
         </CardContent>
 
         <CardActions style={{ display:'flex', justifyContent: 'space-between' }}>
-
           <Button variant="outlined"
             sx={{
               width: '45%',
@@ -114,7 +113,6 @@ export default function ClientCard(props) {
             title={"Data and options"}>
             Client <PersonIcon />
           </Button>
-
         </CardActions>
       </Card>
     </CardStyles>

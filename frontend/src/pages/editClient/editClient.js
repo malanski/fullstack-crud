@@ -1,34 +1,21 @@
-// API
 import { ClientApi } from '../../services/api';
-
-// Icons
 import EditIcon from '@mui/icons-material/Edit';
 import SaveIcon from '@mui/icons-material/Save';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
-
-// Material UI
-import { Box, Button, TextField, styled } from '@mui/material';
-
-// React Hook-Form and Router-Dom
+import { Box, Button, TextField, Typography, styled } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-
-// Yup
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-
-// Yup
 const today = new Date();
-
 // Form validation schema
 const schema = yup.object().shape({
     clientName: yup.string().min(2, "Client name should have 2 characters or more")
         .max(70, "Client name should be at maximum 70 characters long").required("Client name should be required"),
     birthDate: yup.date().max(today, "Client birth date must be earlier than today").required("Client birth date should be required"),
     clientEmail: yup.string().email("Please inset a valid email!").required("Client email should be required!"),
-
     // Address Validation
     country: yup.string().required("Client Country should be required!"),
     zipCode: yup.number().required("Client Zip Code should be required!"),
@@ -41,7 +28,6 @@ const schema = yup.object().shape({
 const EditStyles = styled("section")(({ theme }) => ({
     width: '100%',
     color: 'white',
-
     form: {
         width: '426px',
         padding: '20px',
@@ -63,16 +49,10 @@ const EditStyles = styled("section")(({ theme }) => ({
             borderRadius: '10px 5px',
             padding:'0 2px',
             div: {
-
                 label: {
-                    
-                    // textAlign: 'center',
                     width: '100%',
-                    // marginLeft: '-2px',
-                    // opacity: '0.5',
                     color: 'blue',
                     textAlign:'right',
-                    // lineHeight: '-350px'
                 },
                 div: {
                     opacity: '0.5',
@@ -81,14 +61,10 @@ const EditStyles = styled("section")(({ theme }) => ({
                     height: 'auto',
                     padding:'5px 2px',
                     borderRadius: '10px',
-
-
                 },
             },
         }
     },
-
-    // Responsie Styles
     [theme.breakpoints.down("tablet")]: {
         form: {
             width: '95%',
@@ -99,27 +75,36 @@ const EditStyles = styled("section")(({ theme }) => ({
     },
 }));
 
-
-export const EditClient = () => {
+export const EditClient = (prop) => {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    const {
-        register,
-        formState: { errors },
-        handleSubmit,
-        getValues,
-        reset
-    } = useForm({ resolver: yupResolver(schema) });
-
+    const { register, handleSubmit, getValues, formState: { errors }, reset } = useForm({
+        resolver: yupResolver(schema),
+        defaultValues: {
+          clientName: '',
+          birthDate: '',
+          clientEmail: '',
+          address: {
+            zipCode: '',
+            country: '',
+            county: '',
+            city: '',
+            streetAddress: '',
+            addition: ''
+          },
+        },
+      });
+      
     const submitForm = async (data) => {
+        // const dataBirthDate = new Date(data.birthDate);
         const dataBirthDate = getValues('birthDate');
         const birthDate = dataBirthDate.split('-');
         const newBirthDate = `${birthDate[2]}-${birthDate[1]}-${birthDate[0]}`;
 
         const dataUpdate = {
             name: data.clientName,
-            birthDate: newBirthDate,
+            birthDate:  newBirthDate,
             email: data.clientEmail,
             address: {
                 zipCode: data.zipCode,
@@ -130,9 +115,21 @@ export const EditClient = () => {
                 addition: data.addition,
             },
         };
-        await ClientApi.updateClient(id, dataUpdate);
-        navigate('/viewClients')
+
+        try {
+            await ClientApi.updateClient(id, dataUpdate);
+            navigate('/viewClients')
+        } catch (error) {
+            if (error.response && error.response.data && error.response.data.message) {
+                // Exibe a mensagem de erro retornada pelo servidor
+                alert(error.response.data.message);
+            } else {
+                // Exibe uma mensagem de erro genérica
+                alert('An error occurred while registering the client, try a different name and email');
+            }
+        }
     }
+    const [inputValue, setInputValue] = useState('');
 
     const [state, setState] = useState({
         address: '',
@@ -143,8 +140,8 @@ export const EditClient = () => {
 
     useEffect(() => {
         ClientApi.getClientById(id)
-            .then((response) => {
-                const client = response.data.client;
+            .then(({ data }) => {
+                const client = data.client;
                 setState({
                     _id: client._id,
                     name: client.name,
@@ -154,7 +151,7 @@ export const EditClient = () => {
                 });
             })
             .catch(function (error) {
-                console.log(error);
+                console.log(error.message);
             });
     }, [id]);
 
@@ -173,14 +170,14 @@ export const EditClient = () => {
     }, [reset, state]);
 
     return (
-        <div>
+        <Box>
             <EditStyles >
-                <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+                <Box style={{ display: 'flex', justifyContent: 'space-evenly' }}>
                     <h2>
                         <EditIcon />&ensp;Edit Client Data&ensp;<EditIcon />
                     </h2>
 
-                </div>
+                </Box>
                 <p>Change the fields you want to update and save your changes in the button below.</p>
                 <Box
                     component="form"
@@ -188,115 +185,98 @@ export const EditClient = () => {
                     sx={{
                         margin: '31px auto 30px auto',
                     }}>
-                    <div style={EditStyles.inputCustom}>
-                        <TextField 
+                    <Box style={EditStyles.inputCustom}>
+                        <TextField required name='clientName'
                             variant="standard"
-                            required
                             htmlFor='clientName'
-                            name='clientName'
                             label='Client Name '
-                            // helperText= 'Client Name'
                             defaultValue={state.name}
                             {...register('clientName')} />
-                        <p> {errors.clientName?.message} </p>
-                    </div>
+                        <Typography> {errors.clientName?.message} </Typography>
+                    </Box>
 
-                    <div>
-                        <TextField
+                    <Box>
+                        <TextField required name='birthDate'
+                            value={inputValue} onChange={(e) => setInputValue(e.target.value)}
                             variant="standard"
-                            required
                             htmlFor='birthDate'
-                            name='birthDate'
                             label='Birth Date '
                             type='date'
                             {...register('birthDate')} />
-                        <p> {errors.birthDate?.message} </p>
-                    </div>
+                        <Typography> {errors.birthDate?.message} </Typography>
+                    </Box>
 
-                    <div>
-                        <TextField
+                    <Box>
+                        <TextField required name='clientEmail'
                             variant="standard"
-                            required
                             htmlFor='clientEmail'
-                            name='clientEmail'
                             label='Email '
                             {...register('clientEmail')} />
-                        <p> {errors.clientEmail?.message} </p>
-                    </div>
+                        <Typography> {errors.clientEmail?.message} </Typography>
+                    </Box>
 
                     <h3>Client Address</h3>
-                    <div>
-                        <TextField
+                    <Box> 
+                        <TextField required name='zipCode'
                             variant="standard"
-                            required
                             htmlFor='zipCode'
-                            name='zipCode'
                             label='Zip Code '
                             placeholder={state.address.zipCode}
                             {...register('zipCode')} />
-                        <p> {errors.zipCode?.message} </p>
-                    </div>
+                        <Typography> {errors.ziTypographyCode?.message} </Typography>
+                    </Box>
 
-                    <div>
-                        <TextField
+                    <Box>
+                        <TextField required name='country'
                             variant="standard"
-                            required
                             htmlFor='country'
-                            name='country'
                             label='Country '
                             placeholder={state.address.country}
                             {...register('country')} />
-                        <p> {errors.country?.message} </p>
-                    </div>
+                        <Typography> {errors.country?.message} </Typography>
+                    </Box>
 
-                    <div>
-                        <TextField
+                    <Box>
+                        <TextField required name='county'
                             variant="standard"
-                            required
                             htmlFor='county'
-                            name='county'
                             label='County '
                             value={state.address.county}
                             {...register('county')} />
-                        <p> {errors.county?.message} </p>
-                    </div>
+                        <Typography> {errors.county?.message} </Typography>
+                    </Box>
 
-                    <div>
-                        <TextField
+                    <Box>
+                        <TextField required name='city'
                             variant="standard"
-                            required
                             htmlFor='city'
-                            name='city'
                             label='City '
                             placeholder={state.address.city}
                             {...register('city')} />
-                        <p> {errors.city?.message} </p>
-                    </div>
+                        <Typography> {errors.city?.message} </Typography>
+                    </Box>
 
-                    <div>
-                        <TextField
+                    <Box>
+                        <TextField required name='streetAddress'
                             variant="standard"
-                            required
                             htmlFor='streetAddress'
-                            name='streetAddress'
                             label='Street Address '
                             placeholder={state.address.streetAddress}
                             {...register('streetAddress')} />
-                        <p> {errors.streetAddress?.message} </p>
-                    </div>
+                        <Typography> {errors.streetAddress?.message} </Typography>
+                    </Box>
 
-                    <div>
-                        <TextField
+                    <Box>
+                        <TextField name='addition'
                             variant="standard"
                             htmlFor='addition'
-                            name='addition'
                             label='Apt, suite, etc (optional)'
                             placeholder={state.address.addition}
                             {...register('addition')} />
-                        <p> {errors.addition?.message} </p>
-                    </div>
+                        <Typography> {errors.addition?.message} </Typography>
+                    </Box>
 
-                    <div style={{
+                    <Box style={{
                         display: 'flex',
                         justifyContent: 'space-between',
                         alignItems: 'center'
@@ -317,7 +297,7 @@ export const EditClient = () => {
                                 fontWeight: '700',
                                 background: '#2B93DD'
                             }}>
-                            <div style={{
+                            <Box style={{
                                 display: 'flex',
                                 justifyContent: 'space-between',
                                 alignItems: 'center'
@@ -325,12 +305,12 @@ export const EditClient = () => {
                                 <SaveIcon />
                                 Save
                                 <SaveIcon />
-                            </div>
+                            </Box>
                         </Button>
-                    </div>
+                    </Box>
                 </Box>
             </EditStyles>
 
-        </div>
+        </Box>
     )
 }

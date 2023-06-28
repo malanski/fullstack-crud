@@ -1,33 +1,19 @@
 import './ClientRegister.scss';
-
-// API
 import { ClientApi } from '../../services/api';
-
-// Icons
 import AddIcon from '@mui/icons-material/Add';
-
-// Material UI
 import { Box, Button, TextField, styled } from '@mui/material';
-
-// React Hook-Form and Router-Dom
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-
-// Yup
-// import { validationSchema } from '../validationSchema';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
-// Yup
 const today = new Date();
-
 // Form validation schema
 const schema = yup.object().shape({
     clientName: yup.string().min(2, "Client name should have 2 characters or more")
         .max(70, "Client name should be at maximum 70 characters long").required("Client name should be required"),
     birthDate: yup.date().max(today, "Client birth date must be earlier than today").required("Client birth date should be required"),
     clientEmail: yup.string().email("Please inset a valid email!").required("Client email should be required!"),
-
     // Address Validation
     country: yup.string().required("Client Country should be required!"),
     zipCode: yup.number().required("Client Zip Code should be required!"),
@@ -82,8 +68,9 @@ const FormStyles = styled("section")(({ theme }) => ({
     },
 }));
 
-
 export function ClientRegister() {
+    const navigate = useNavigate();
+
     // const { 
     //     register, 
     //     formState: { errors }, 
@@ -108,7 +95,6 @@ export function ClientRegister() {
       });
       
       
-    const navigate = useNavigate();
 
     // const submitForm = async (data) => {
     //     const dataBirthDate = getValues('birthDate');
