@@ -1,4 +1,3 @@
-// import './viewClients.scss';
 import { ClientApi } from '../../services/api';
 import ClientCard from "../../components/ClientCard/ClientCard";
 import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
@@ -45,6 +44,7 @@ export const ViewClients = () => {
                 alignItems: 'center',
                 margin: 'auto',
                 width: '80%',
+                color: 'white'
             }}>
                 <FormatListNumberedIcon />
                     &ensp;Clients list view&ensp;
