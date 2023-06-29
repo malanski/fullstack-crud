@@ -13,16 +13,20 @@ export const ViewClients = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsLoading(false);
-        }, 3000);
+        }, 2000);
+       
         ClientApi.listClients()
+        
             .then((response) => {
+                
                 const data = response.data.clients;
                 setDataApi(data);
-                setIsLoading(false);
+                setIsLoading(true);
             })
+            
             .catch(function (error) {
                 console.log(error);
-                setIsLoading(false);
+                setIsLoading(true);
             });
         return () => clearTimeout(timer);
     }, []);

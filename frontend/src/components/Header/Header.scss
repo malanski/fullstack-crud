@@ -1,26 +1,17 @@
-.header {
-    padding: 20px;
-    background: #003022;
-    opacity: 0.5;
-    .logoHeader {
-        width: 30%;
-    }
-}
+// @media screen and (max-width: 645px) {
+//     .header {
+//         padding: 0;
 
-@media screen and (max-width: 645px) {
-    .header {
-        padding: 0;
-
-        .logoHeader {
-            width: 90%;
-            padding: 0;
-            img {
-                width: 90%;
-                margin: 0 auto 0 auto;
-            }
-        }    
-    }
-}
+//         .logoHeader {
+//             width: 90%;
+//             padding: 0;
+//             img {
+//                 width: 90%;
+//                 margin: 0 auto 0 auto;
+//             }
+//         }    
+//     }
+// }
 @media screen and (max-width: 400px) {
     .header {
         padding: 5px;

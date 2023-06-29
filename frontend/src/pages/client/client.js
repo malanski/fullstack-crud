@@ -69,30 +69,30 @@ export const Client = () => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     return (
-        <div className="client">
-            <h2><PersonIcon /> Client Data <PersonIcon /></h2>
+        <Box className="client">
+            <Typography><PersonIcon /> Client Data <PersonIcon /></Typography>
 
-            <div className="client-data">
+            <Box className="client-data">
                 <hr />
                 <p className='client-right'><b>Id:</b> {state._id}</p>
 
-                <div>
+                <Box>
                     <p>Name:</p>
                     <p className="client-name">
                         {/* <b>{state.name[0].toUpperCase() + state.name.substring(1)}</b> */}
                         <b>{state.name.toUpperCase()}</b>
                     </p>
-                </div>
+                </Box>
 
                 <p className='client-right'>
                     Birth date: <b>{state.birthDate}</b>
                 </p>
                 <hr />
 
-                <div>
+                <Box>
                     <p>Email:</p>
                     <p className="client-email"> {state.email}</p>
-                </div>
+                </Box>
                 <hr />
 
                 <p>Address:</p>
@@ -129,7 +129,7 @@ export const Client = () => {
                 </ul>
                 <br />
                 <hr />
-                <div className='client-actions'>
+                <Box className='client-actions'>
                     <Button>
                         <Link to='/viewClients'><KeyboardDoubleArrowLeftIcon />Back</Link>
                     </Button>
@@ -151,7 +151,7 @@ export const Client = () => {
                             <Typography id="modal-modal-title" variant="h6" component="h2">
                                 Waring
                             </Typography>
-                            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                            <Box id="modal-modal-description" sx={{ mt: 2 }}>
                                 Are you sure you want to <big>Delete</big> this client record?
                                 <br /><br />
                                 Name: {state.name}
@@ -159,7 +159,7 @@ export const Client = () => {
                                 Id: {state._id}
                                 <br /><br />
 
-                                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                <Box style={{ display: 'flex', justifyContent: 'space-between' }}>
 
                                     <Button sx={{ width: '176px', height: '40px', margin: '10px 10px 0 0' }} variant="contained"
                                         onClick={() => deleteClient()}
@@ -175,13 +175,13 @@ export const Client = () => {
                                         title="Cancel delete">
                                         Cancel
                                     </Button>
-                                </div>
+                                </Box>
 
-                            </Typography>
+                            </Box>
                         </Box>
                     </Modal>
-                </div>
-            </div>
-        </div>
+                </Box>
+            </Box>
+        </Box>
     );
 }
