@@ -3,7 +3,7 @@
 ![logo ulissesmalanski-03 white copy](https://github.com/malanski/images/blob/main/logo-empuxo2.jpeg)
 
 ## Introduction
-This document outlines the requirements for a web application that will manage patient registers. The application will be a CRUD (Create, Read, Update, Delete) application that will allow users to manage patient information such as their name, birth date, email, and address.
+This document outlines the requirements for a web application that will manage clients' registers. The application will be a CRUD (Create, Read, Update, Delete) application that will allow users to manage clients' information such as their name, birth date, email, and address.
 
 ## Objectives  
 Web application (CRUD) to manage patient registers (Patient's name, birth date, email, and address).
@@ -13,11 +13,11 @@ Web application (CRUD) to manage patient registers (Patient's name, birth date, 
 - Development of the front end.
 - Use React. https://reactjs.org
 - Interface easy to use (UI/UX).
+- Use Material UI https://material-ui.com
 - Field validation (date, required fields, etc).
-- Use Material UI https://material-ui.com 
 - Frontend deployment at Vercel platform
-- Backend deployment at Render or Heroku platforms
-- Develop the back end using NodeJS
+- Backend database cloud deployments at Atlas MongoDB platform
+- Backend server development using NodeJS and deployed at Render
 <!-- - Cache the data in-browser. -->
 
 
@@ -27,15 +27,15 @@ The front end of the application must be developed using React. The interface sh
 The application is deployed to a cloud platform. The backend is developed using NodeJS also the data can be cached in-browser for faster access.## References  
 
 ## Back end    
-The DataBase: MongoDB, Express, and Mongoose are using Atlas Database Deployment. 
-The server: developed using NodeJS and deployed at Heroku or Render. 
+The DataBase: MongoDB, Express, and Mongoose and using Atlas Database Deployment. 
+The server: developed using NodeJS and deployed at Render. 
      
 ## About the Code   
 This project has clean and well-organized code, with an emphasis on correct naming conventions and adherence to patterns like PSRs, design patterns, and SOLID principles. Prioritizing code maintainability, error handling, and architecture, ensuring that the code is well thought out and structured before it is developed. I enjoy decoupling components such as additional layers, services, and repositories in order to produce modular and maintainable code. These characteristics make this project a dependable and stable option for our users.  
   
 ## TODO    
   
- also the data can be cached in-browser for faster access.
+Make Data cached in-browser for faster access.
 
 ## TODO + 1  
  
@@ -43,4 +43,6 @@ The backend can be switched to deployed using AWS Free Tier services such as Lam
    
 ### References   
 Intro to React: https://reactjs.org/tutorial/tutorial.html
-Material UI: https://mui.com/
+Material UI: https://mui.com/  
+Atlas Database: https://cloud.mongodb.com/
+Render: https://render.com/docs
