@@ -27,8 +27,8 @@ The front end of the application must be developed using React. The interface sh
 The application is deployed to a cloud platform. The backend is developed using NodeJS also the data can be cached in-browser for faster access.## References  
 
 ## Back end    
-The DataBase: MongoDB, Express, and Mongoose and using Atlas Database Deployment. 
-The server: developed using NodeJS and deployed at Render. 
+The DataBase is modeled with MongoDB, Express, and Mongoose and uses Atlas Database Deployment. 
+The server is developed using NodeJS and deployed at Render. 
      
 ## About the Code   
 This project has clean and well-organized code, with an emphasis on correct naming conventions and adherence to patterns like PSRs, design patterns, and SOLID principles. Prioritizing code maintainability, error handling, and architecture, ensuring that the code is well thought out and structured before it is developed. I enjoy decoupling components such as additional layers, services, and repositories in order to produce modular and maintainable code. These characteristics make this project a dependable and stable option for our users.  
@@ -42,7 +42,8 @@ Make Data cached in-browser for faster access.
 The backend can be switched to deployed using AWS Free Tier services such as Lambda, API Gateway, DynamoDB or RDS. This will allow the application to take advantage of the scalability and reliability of AWS services. 
    
 ### References   
-Intro to React: https://reactjs.org/tutorial/tutorial.html
-Material UI: https://mui.com/  
-Atlas Database: https://cloud.mongodb.com/
-Render: https://render.com/docs
+Intro to React: https://reactjs.org/tutorial/tutorial.html  
+Material UI: https://mui.com/    
+Atlas Database: https://cloud.mongodb.com/  
+Render: https://render.com/docs  
+Vercel: https://vercel.com/dashboard  
