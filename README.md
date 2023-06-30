@@ -5,20 +5,19 @@
 ## Introduction
 This document outlines the requirements for a web application that will manage patient registers. The application will be a CRUD (Create, Read, Update, Delete) application that will allow users to manage patient information such as their name, birth date, email, and address.
 
-## Objectives
+## Objectives  
+Web application (CRUD) to manage patient registers (Patient's name, birth date, email, and address).
 
-Web application (CRUD) to manage patient registers (Patient's name, birth date, email and address).
+## Project Basic Features
 
-## Technologies
-
-- Development of the front-end.
+- Development of the front end.
 - Use React. https://reactjs.org
 - Interface easy to use (UI/UX).
 - Field validation (date, required fields, etc).
 - Use Material UI https://material-ui.com 
-- Frontend deploy at Vercel platform
-- Backend deploy at Heroku platform
-- Develop the back-end using NodeJS
+- Frontend deployment at Vercel platform
+- Backend deployment at Render or Heroku platforms
+- Develop the back end using NodeJS
 <!-- - Cache the data in-browser. -->
 
 
