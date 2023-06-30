@@ -155,6 +155,7 @@ export function ClientRegister() {
                         borderRadius: '10px',
                         margin: '31px auto 30px auto',
                     }}>
+                        
                     <Box>
                         <TextField required
                             variant="outlined"
@@ -268,23 +269,15 @@ export function ClientRegister() {
                     </Box>
 
                     <Button type='submit'
-                        variant="contained"
+                        variant="button"
                         title="Create new Client"
-                        sx={{width: '183px',
+                        sx={{
                             fontSize: '20px',
                             fontWeight: '700',
                             background: '#2B93DD'}}
                             disabled={isLoading}>
                             {isLoading ? 
-                                <CircularProgress size={24}  /> : 'Submit'}
-
-                        <Box sx={{ display: 'flex',
-                            justifyContent: 'space-between',
-                            alignItems: 'center'}}>
-                            <AddIcon />
-                            Submit
-                            <AddIcon />
-                        </Box>
+                                <CircularProgress size={24} /> : 'Submit'}
                     </Button>
                 </Box>
             </FormStyles>

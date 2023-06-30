@@ -162,6 +162,7 @@ export const EditClient = () => {
                         background: 'grey',
                         margin: '31px auto 30px auto',
                     }}>
+
                     <Box style={EditStyles.inputCustom}>
                         <TextField variant="standard" name='clientName'
                             required
@@ -169,8 +170,8 @@ export const EditClient = () => {
                             label='Client Name '
                             defaultValue={state.name}
                             {...register('clientName')} />
-                        <Typography> {errors.clientName?.message} </Typography>
-                        
+                        {errors.clientName && <Typography sx={{ height:'30px'}}
+                        color="error">{errors.clientName.message}</Typography>}
                     </Box>
 
                     <Box>
@@ -181,7 +182,8 @@ export const EditClient = () => {
                             type='date'
                             // defaultValue={state.birthDate}
                             {...register('birthDate')} />
-                        <Typography> {errors.birthDate?.message} </Typography>
+                        {errors.birthDate && <Typography sx={{ height:'30px'}}
+                        color="error">{errors.birthDate.message}</Typography>}
                     </Box>
 
                     <Box>
@@ -192,7 +194,8 @@ export const EditClient = () => {
                             name='clientEmail'
                             label='Email '
                             {...register('clientEmail')} />
-                        <Typography> {errors.clientEmail?.message} </Typography>
+                        {errors.clientEmail && <Typography sx={{ height:'30px'}}
+                        color="error">{errors.clientEmail.message}</Typography>}
                     </Box>
 
                     <Typography variant="h6"
@@ -209,13 +212,8 @@ export const EditClient = () => {
                             placeholder={state.address.zipCode}
                             {...register('zipCode')}
                             message="Please enter a valid zip code" />
-                            
-                        <Typography style={{color: 'red', fontSize: '17px'}} >
-                            
-                            {/* {errors.zipCode?.message[5] + console.log(errors.zipCode?.message) } */}
-                            {console.log(errors.zipCode?.message)} 
-                            {errors.zipCode?.message}
-                        </Typography>
+                        {errors.zipCode && <Typography sx={{ height:'60px'}}
+                        color="error">{errors.zipCode.message}</Typography>}
                     </Box>
 
                     <Box>
@@ -227,7 +225,8 @@ export const EditClient = () => {
                             label='Country '
                             placeholder={state.address.country}
                             {...register('country')} />
-                        <Typography> {errors.country?.message} </Typography>
+                        {errors.country && <Typography sx={{ height:'30px'}}
+                        color="error">{errors.country.message}</Typography>}
                     </Box>
 
                     <Box>
@@ -246,7 +245,8 @@ export const EditClient = () => {
                             //     }))
                             //   }
                             {...register('county')} />
-                        <Typography> {errors.county?.message} </Typography>
+                        {errors.county && <Typography sx={{ height:'30px'}}
+                        color="error">{errors.county.message}</Typography>}
                     </Box>
 
                     <Box>
@@ -258,7 +258,8 @@ export const EditClient = () => {
                             label='City '
                             placeholder={state.address.city}
                             {...register('city')} />
-                        <Typography> {errors.city?.message} </Typography>
+                        {errors.city && <Typography sx={{ height:'30px'}}
+                        color="error">{errors.city.message}</Typography>}
                     </Box>
 
                     <Box>
@@ -270,7 +271,8 @@ export const EditClient = () => {
                             label='Street Address '
                             placeholder={state.address.streetAddress}
                             {...register('streetAddress')} />
-                        <Typography> {errors.streetAddress?.message} </Typography>
+                        {errors.streetAddress && <Typography sx={{ height:'30px'}}
+                        color="error">{errors.streetAddress.message}</Typography>}
                     </Box>
 
                     <Box>
@@ -281,7 +283,6 @@ export const EditClient = () => {
                             label='Apt, suite, etc (optional)'
                             placeholder={state.address.addition}
                             {...register('addition')} />
-                        <Typography> {errors.addition?.message} </Typography>
                     </Box>
 
                     <Box style={{
