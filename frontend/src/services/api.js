@@ -2,13 +2,13 @@ import Axios from 'axios';
 
 const axios = Axios.create({
     //  LOCAL URL DEVELOPMENT
-     baseURL: 'http://localhost:8000'
+    //  baseURL: 'http://localhost:8000'
     
     //  Render Backend Deploy
         // baseURL: 'https://bakcend-crud.onrender.com'
 
     //  Heroku Backend Deploy
-    //  baseURL: 'https://my-register-backend.herokuapp.com'
+     baseURL: 'https://my-register-backend.herokuapp.com'
 
 });
 
