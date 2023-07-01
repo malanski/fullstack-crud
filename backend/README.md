@@ -22,13 +22,11 @@ This back end part of the project is developed with the following technologies:
       In this project the model schema for the "Client" object uses Mongoose, which is an Object Data Modeling (ODM) library for MongoDB in Node.js.   
 - JSON
 - dotenv
+  You must use your own username (DB_USER) and password (DB_PASS) and create a '.env' file in the backend root for MongoDb (Atlas) in order to run locally.
 - Server deploy at Render or Heroku 
 - MongoDB Cloud Atlas
 
 <hr>
-  
-## **IMPORTANT**  
-You must use your own username (DB_USER) and password (DB_PASS) and create a '.env' file in the backend root for MongoDb (Atlas) in order to run locally.
   
 ## **Requirements**
 - Node.js;
