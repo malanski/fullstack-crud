@@ -76,18 +76,6 @@ const EditStyles = styled("section")(({ theme }) => ({
     },
 }));
 
-// async function validateYupSchema(schema, data) {
-//     try {
-//         await schema.validate(data, { abortEarly: false });
-//     } catch (error) {
-//         const errors = {};
-//         error.inner.forEach((err) => {
-//             errors[err.path] = err.message;
-//         });
-//         throw errors;
-//     }
-// }
-
 export const EditClient = () => {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -123,16 +111,10 @@ export const EditClient = () => {
                 addition: data.addition,
             },
         };
-        // await validateYupSchema(schema, dataUpdate); // Pass the schema as a parameter
         await new Promise((resolve) => setTimeout(resolve, 3000));
         await ClientApi.updateClient(id, dataUpdate);
         navigate('/viewClients')
     }
-
-    // const formatDateForBackend = (date) => {
-    //     const [day, month, year] = date.split('-');
-    //     return `${year}-${month}-${day}`;
-    //   };
 
     const [state, setState] = useState({
         address: '',
