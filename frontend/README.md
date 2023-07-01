@@ -1,18 +1,16 @@
-# **Frontend - Registration System/Login** 
-
-## **Description**
-Front-end application for visual interaction with the patients registration Api
-
+# Frontend UI for Client Management API 
+ 
+## Description
+  
+A Front-end application for visual interaction with the Client Management API and deal with Error handling and Form validations.
+   
 <hr>
   
-## **Access Application**
+## Access Application
+ 
 [https://development-challenge-four-eta.vercel.app/](https://development-challenge-four-eta.vercel.app/)
 
 <hr>
-
-## **Objectives**
-- Create application with ReactJs using Yup, Material-UI and useForm
-- Error handling and validations  
 
 ## **Technologies**
 
@@ -43,18 +41,19 @@ HTTPS
   
 SSH  
 `git clone git@github.com:malanski/development-challenge-four.git`
-# 📷 App Demonstrations
-Create patient Form
+# 📷 App Demonstrations  
+  
+Create client Form
 <img src="src/assets/images/page-home.png" title="App screenshot"/>
   
-Fetch all patients data from Patient Api  
-<img src="src/assets/images/page-list-view.png" title="Fetch all patients data from Patient Api"/>
+Fetch all clients data from client Api  
+<img src="src/assets/images/page-list-view.png" title="Fetch all clients data from client Api"/>
   
-Fetch data from Patient Api   
-<img src="src/assets/images/page-patient.png" title="Fetch single patient data from Patient Api"/>  
+Fetch data from client Api   
+<img src="src/assets/images/page-client.png" title="Fetch single client data from client Api"/>  
   
-Fetch data from Patient Api   
-<img src="src/assets/images/page-patient-delete.png" title="Fetch single patient data from Patient Api"/>
+Fetch data from client Api   
+<img src="src/assets/images/page-client-delete.png" title="Fetch single client data from client Api"/>
 
 
 
