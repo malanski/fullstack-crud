@@ -67,7 +67,7 @@ export const ViewClients = () => {
                 transition: 'all ease-in-out 0.5s',
                 '& > div': {
                     ':hover': {
-                        backgroundColor: '#ebf7ff',
+                        backgroundColor: '#00629b',
                         transition: 'all ease-in-out 0.5s',
                     },
                 },

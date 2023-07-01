@@ -18,15 +18,16 @@ Back-end application to register patients
 This project was developed with the following technologies: 
 - JavaScript 
 - Express
-- Mogoose - MongoDB (Atlas)
+- MongoDb
 - JSON
 - dotenv
-- Heroku
-  
+- Server deploy at Render or Heroku 
+- MongoDB Cloud Atlas
+
 <hr>
   
 ## **IMPORTANT**  
-You need to create a `.env` file in the backend root with a MongoDb (Atlas) Username(DB_USER) and password(DB_PASS).
+You must use your own username (DB_USER) and password (DB_PASS) and create a '.env' file in the backend root for MongoDb (Atlas) in order to run locally.
   
 ## **Requirements**
 - Node.js;

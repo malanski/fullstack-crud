@@ -11,17 +11,6 @@ import {
 import { useNavigate } from 'react-router-dom';
 
 const CardStyles = styled("div")(({ theme }) => ({
-  textAlign: 'left',
-  border: '1px solid #e3f4ff',
-  borderRadius: '5px',
-  width: '300px',
-  padding: '10px',
-  background: 'black',
-  div: {
-    background: '#e3f4ff',
-    width: 'auto',
-  },
-
   [theme.breakpoints.down("tablet")]: {
     width: '90%',
     div: {
@@ -48,8 +37,19 @@ export default function ClientCard(props) {
   const navigate = useNavigate();
 
   return (
-    <CardStyles>
-      <Card sx={{}} >
+    <CardStyles sx={{
+      textAlign: 'left',
+      border: '1px solid #e3f4ff',
+      borderRadius: '5px',
+      width: '300px',
+      padding: '10px',
+      background: 'black',
+      div: {
+        background: '#5291bb',
+        width: 'auto',
+      },
+    }}>
+      <Card >
         <CardContent>
           <Typography sx={{ fontSize: 14, textAlign: 'right' }} gutterBottom>
             <small>Client Id:</small> <br /> <b>{_id}</b>
@@ -60,6 +60,7 @@ export default function ClientCard(props) {
               mb: 1.5,
               padding: '5px',
               background: 'white',
+              borderRadius: '5px',
               textTransform: 'capitalize',
               fontWeight: 'bolder',
               height: '75px'
@@ -77,7 +78,7 @@ export default function ClientCard(props) {
           </Typography>
           <Typography sx={{ mb: 1.5, height: '70px' }}>
             <small>Email: </small><br />
-            <Typography variant="span" style={{ textAlign: 'center', background: 'white', }}>
+            <Typography variant="span" style={{ padding: '5px', textAlign: 'center', background: 'white', }}>
               {email}
             </Typography>
           </Typography>

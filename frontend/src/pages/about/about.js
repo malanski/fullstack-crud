@@ -30,8 +30,14 @@ export const About = () => {
                     <Typography variant='h3'>Project Goal </Typography>
                     <Typography variant='p'>
                         &ensp;&ensp;&ensp;
-                        To develop a fullstack web application (CRUD) to manage patient registers (Patient's name,
-                        birth date, email and address).
+                        To develop a fullstack web application (CRUD) to manage client registers data such as Client's name,
+                        birth date, email and address. <br></br>
+                        &ensp;&ensp;&ensp;
+                        This Fullstack web application have front and back end connected working together.  <br></br>
+                        CRUD is an acronym for create, read, update, delete, and is the functionality that you have in the database, 
+                        which is in the case of registering customers and being able to manipulate their data later
+                        
+
                     </Typography>
                 </Box>
 
@@ -41,28 +47,18 @@ export const About = () => {
                     <ul>
                         <big><b>Requirements</b></big>
                         <br />
-                        <br />
-
                         <li>
                             Frontend development.
-                        </li>
-                        <br />
-
+                        </li><br />
                         <li>
                             Use react to create the frontend.
-                        </li>
-                        <br />
-
+                        </li><br />
                         <li>
                             Interface easy to use (UI/UX).
-                        </li>
-                        <br />
-
+                        </li><br />
                         <li>
                             Field validation (date, required fields, etc).
-                        </li>
-                        <br />
-
+                        </li><br />
                         <li>
                             Use Material UI or Tailwind
                         </li>
@@ -73,7 +69,9 @@ export const About = () => {
                     <Box>
                         <Typography variant='h3'>Frontend screenshots</Typography>
                         <img src={print2} alt='A doctor with his patient'></img>
-                        <Typography variant='p'>&ensp;&ensp;&ensp;Data being fetch from Api.</Typography>
+                        <Typography variant='p'>
+                            &ensp;&ensp;&ensp;Data being fetch from Api.
+                        </Typography>
 
                     </Box>
                     <hr />
@@ -107,9 +105,8 @@ export const About = () => {
                     <h4><CloudCircleIcon />&ensp;Backend Technologies&ensp;<CloudCircleIcon /></h4>
                     <ul>
                         <li>Express</li>
-                        <li>Mongoose</li>
-                        <li>Atlas</li>
-                        <li>Atlas</li>
+                        <li>MongoDB - Mongoose</li>
+                        <li>Atlas MongoDB Cloud</li>
                     </ul>
                 </Box>
             </Box>

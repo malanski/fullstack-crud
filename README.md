@@ -27,7 +27,7 @@ The front end of the application must be developed using React. The interface sh
 The application is deployed to a cloud platform. The backend is developed using NodeJS also the data can be cached in-browser for faster access.## References  
 
 ## Back end    
-The DataBase is modeled with MongoDB, Express, and Mongoose and uses Atlas Database Deployment. 
+The DataBase is modeled with MongoDB, the Express module, as web application library for Node.js., and Mongoose and uses Atlas Database Deployment. 
 The server is developed using NodeJS and deployed at Render. 
      
 ## About the Code   
