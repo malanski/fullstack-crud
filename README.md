@@ -1,12 +1,12 @@
-# Fullstack CRUD
+# Fullstack CRUD 
+  
+## Introduction  
+  
+This document outlines the requirements for a Fullstack web application that will manage clients' registers. The application will be a CRUD (Create, Read, Update, Delete) application that will allow users to manage clients' information such as their name, birth date, email, and address.
 
-![logo ulissesmalanski-03 white copy](https://github.com/malanski/images/blob/main/logo-empuxo2.jpeg)
-
-## Introduction
-This document outlines the requirements for a web application that will manage clients' registers. The application will be a CRUD (Create, Read, Update, Delete) application that will allow users to manage clients' information such as their name, birth date, email, and address.
 
 ## Objectives  
-Web application (CRUD) to manage patient registers (Patient's name, birth date, email, and address).
+Web application (CRUD) to manage client registers (Client's name, birth date, email, and address).
 
 ## Project Basic Features
 
@@ -33,14 +33,31 @@ The server is developed using NodeJS and deployed at Render.
 ## About the Code   
 This project has clean and well-organized code, with an emphasis on correct naming conventions and adherence to patterns like PSRs, design patterns, and SOLID principles. Prioritizing code maintainability, error handling, and architecture, ensuring that the code is well thought out and structured before it is developed. I enjoy decoupling components such as additional layers, services, and repositories in order to produce modular and maintainable code. These characteristics make this project a dependable and stable option for our users.  
   
-## TODO    
+#### TODO    
   
 Make Data cached in-browser for faster access.
 
-## TODO + 1  
+#### TODO + 1  
  
 The backend can be switched to deployed using AWS Free Tier services such as Lambda, API Gateway, DynamoDB or RDS. This will allow the application to take advantage of the scalability and reliability of AWS services. 
-   
+
+
+### Contributing
+If you'd like to contribute to this project, please follow these guidelines:
+
+Fork the repository.
+Create a new branch for your feature or bug fix.
+Make your changes and commit them with descriptive commit messages.
+Push your changes to your forked repository.
+Submit a pull request explaining your changes.
+
+### Contact
+If you have any questions or suggestions, please feel free to reach out.
+
+I appreciate your interest in our client management app!
+
+Thank you for using it.
+  
 ### References   
 Intro to React: https://reactjs.org/tutorial/tutorial.html  
 Material UI: https://mui.com/    
