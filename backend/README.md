@@ -11,14 +11,15 @@ Back-end application to register patients
 <hr>
 
 ## **Objectives**
-- CRUD: Application that can be used to register a user, create, read, update and delete data. 
+To develop a Back end application with a `Client` model providing an interface to interact with the "Client" collection in the database. It allows performing CRUD (Create, Read, Update, Delete) operations on the collection.  
 
 ## **Technologies**
 
-This project was developed with the following technologies: 
-- JavaScript 
-- Express
-- MongoDb
+This back end part of the project is developed with the following technologies: 
+- NodeJs
+  - Express Server web application library. 
+  - MongoDb - Mongoose 
+      In this project the model schema for the "Client" object uses Mongoose, which is an Object Data Modeling (ODM) library for MongoDB in Node.js.   
 - JSON
 - dotenv
 - Server deploy at Render or Heroku 
