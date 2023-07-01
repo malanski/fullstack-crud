@@ -8,9 +8,13 @@ import { useState, useEffect } from 'react';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-const today = new Date();
+// const today = new Date();
+
 const minBirthDate = new Date();
-        minBirthDate.setFullYear(minBirthDate.getFullYear() - 18); // Subtract 18 years from today's date
+minBirthDate.setFullYear(minBirthDate.getFullYear() - 18); // Subtract 18 years from today's date
+
+const maxBirthDate = new Date();
+maxBirthDate.setFullYear(maxBirthDate.getFullYear() - 150); // Subtract 150 years from today's date
 
 // Form validation schema
 const schema = yup.object().shape({
@@ -18,9 +22,11 @@ const schema = yup.object().shape({
         .max(70, "Client name should be at maximum 70 characters long").required("Client name should be required")
         .matches(/\D/, "Client name cannot be composed only of numbers"),
         
-    birthDate: yup.date().min(minBirthDate, "Client must be at least 18 years old")
-        .max(today, "Client birth date must be earlier than today")
-        .required("Client birth date should be required"),
+
+    birthDate: yup.date().max(minBirthDate, "Client must be at least 18 years old")
+    // .max(today, "Client birth date must be earlier than today")
+    .min(maxBirthDate, "Client must be at most 150 years old")
+    .required("Client birth date should be required"),
 
     clientEmail: yup.string().email("Please inset a valid email!").required("Client email should be required!"),
     // Address Validation
@@ -70,17 +76,17 @@ const EditStyles = styled("section")(({ theme }) => ({
     },
 }));
 
-async function validateYupSchema(schema, data) {
-    try {
-        await schema.validate(data, { abortEarly: false });
-    } catch (error) {
-        const errors = {};
-        error.inner.forEach((err) => {
-            errors[err.path] = err.message;
-        });
-        throw errors;
-    }
-}
+// async function validateYupSchema(schema, data) {
+//     try {
+//         await schema.validate(data, { abortEarly: false });
+//     } catch (error) {
+//         const errors = {};
+//         error.inner.forEach((err) => {
+//             errors[err.path] = err.message;
+//         });
+//         throw errors;
+//     }
+// }
 
 export const EditClient = () => {
     const { id } = useParams();
@@ -98,14 +104,14 @@ export const EditClient = () => {
         setIsLoading(true);
 
         const dataBirthDate = getValues('birthDate');
-        // const birthDate = dataBirthDate.split('-');
-        const birthDate = new Date(dataBirthDate);
-        // const newBirthDate = `${birthDate[2]}-${birthDate[1]}-${birthDate[0]}`;
+        const birthDate = dataBirthDate.split('-');
+        // const birthDate = new Date(dataBirthDate);
+        const newBirthDate = `${birthDate[2]}-${birthDate[1]}-${birthDate[0]}`;
 
         const dataUpdate = {
             name: data.clientName,
-            // birthDate: newBirthDate,
-            birthDate: birthDate.toISOString(),
+            birthDate: newBirthDate,
+            // birthDate: birthDate.toISOString(),
             // birthDate: formatDateForBackend(data.birthDate),
             email: data.clientEmail,
             address: {
@@ -117,7 +123,7 @@ export const EditClient = () => {
                 addition: data.addition,
             },
         };
-        await validateYupSchema(schema, dataUpdate); // Pass the schema as a parameter
+        // await validateYupSchema(schema, dataUpdate); // Pass the schema as a parameter
         await new Promise((resolve) => setTimeout(resolve, 3000));
         await ClientApi.updateClient(id, dataUpdate);
         navigate('/viewClients')

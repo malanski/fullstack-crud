@@ -7,23 +7,25 @@ import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
+// eslint-disable-next-line
 const today = new Date();
 const minBirthDate = new Date();
-        minBirthDate.setFullYear(minBirthDate.getFullYear() - 18); // Subtract 18 years from today's date
+minBirthDate.setFullYear(minBirthDate.getFullYear() - 18); // Subtract 18 years from today's date
 
+const maxBirthDate = new Date();
+maxBirthDate.setFullYear(maxBirthDate.getFullYear() - 150); // Subtract 150 years from today's date
+        
 // Form validation schema
 const schema = yup.object().shape({
     clientName: yup.string().min(2, "Client name should have 2 characters or more")
         .max(70, "Client name should be at maximum 70 characters long").required("Client name should be required")
         .matches(/\D/, "Client name cannot be composed only of numbers"),
-    birthDate: yup.date().max(today, "Client birth date must be earlier than today")
-        .min(minBirthDate, "Client must be at least 18 years old")
-        .transform((value, originalValue) => {
-            // Transform the birth date value to a Date object for comparison
-            const [year, month, day] = originalValue.split('-');
-            return new Date(year, month - 1, day);
-        })
-        .required("Client birth date should be required"),
+
+    birthDate: yup.date().max(minBirthDate, "Client must be at least 18 years old")
+    // .max(today, "Client birth date must be earlier than today")
+    .min(maxBirthDate, "Client must be at most 150 years old")
+    .required("Client birth date should be required"),
+
     clientEmail: yup.string().email("Please inset a valid email!").required("Client email should be required!"),
     // Address Validation
     country: yup.string().required("Client Country should be required!")

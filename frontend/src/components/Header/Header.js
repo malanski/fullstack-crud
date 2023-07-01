@@ -1,10 +1,12 @@
 import './Header.scss';
+// eslint-disable-next-line
 import { Link } from 'react-router-dom';
 import medcloudLogo from '../../assets/images/webcloudNeon.gif';
 import medcloudLogo1 from '../../assets/images/webcloud.png';
 import { Nav } from '../Nav';
+// eslint-disable-next-line
 import { Box, ThemeProvider, styled } from '@mui/material';
-
+// eslint-disable-next-line
 const EditStyles = styled("div")(({ theme }) => ({
     [theme.breakpoints.up("tablet")]: {
         header: {
