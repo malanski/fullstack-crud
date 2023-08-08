@@ -8,7 +8,7 @@ import { Box } from '@mui/material';
 
 export function Footer() {
     return (
-        <Box sx={{
+        <Box component='footer' sx={{
             marginTop: '100px',
             background: 'black',
             padding: '20px',
@@ -27,7 +27,7 @@ export function Footer() {
 
                 }} >
                 <Box sx={{
-                    '& > div': {
+                    '& > a': {
                         color: '#00629b',
                         textDecoration: 'none',
                         display: 'flex',
@@ -42,17 +42,17 @@ export function Footer() {
                     }
                 }
                 }>
-                    <Box variant='a' href="https://github.com/malanski"
+                    <Box component='a' href="https://github.com/malanski"
                         title="github" target="_blank" rel="noreferrer">
                         <GitHubIcon /><span>Github</span>
                     </Box>
-                    <Box href="https://malanski.github.io/portfolio/" title="portfolio" target="_blank" rel="noreferrer">
+                    <Box component='a' href="https://malanski.github.io/portfolio/" title="portfolio" target="_blank" rel="noreferrer">
                         <ConstructionIcon />&ensp;&ensp;Portfolio
                     </Box>
-                    <Box href="https://www.linkedin.com/in/Boxisses-malanski" title="linkedin" target="_blank" rel="noreferrer">
+                    <Box component='a' href="https://www.linkedin.com/in/Boxisses-malanski" title="linkedin" target="_blank" rel="noreferrer">
                         <LinkedInIcon />&ensp;&ensp;Linkedin
                     </Box>
-                    <Box to='/about'>
+                    <Box component='a' to='/about' href='/about'>
                         <InfoTwoToneIcon />&ensp;&ensp;About
                     </Box>
                 </Box>

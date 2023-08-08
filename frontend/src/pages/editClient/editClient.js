@@ -156,12 +156,12 @@ export const EditClient = () => {
 
     return (
         <Box>
-            <EditStyles style={{
+            <EditStyles sx={{
                 width: '100%',
                 color: 'white',
             }} >
-                <Box style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-                    <Typography variant="h2">
+                <Box sx={{ display: 'flex', justifyContent: 'space-evenly' }}>
+                    <Typography component="h2">
                         <EditIcon />&ensp;Edit Client Data&ensp;<EditIcon />
                     </Typography>
 
@@ -177,7 +177,7 @@ export const EditClient = () => {
                         margin: '31px auto 30px auto',
                     }}>
 
-                    <Box style={EditStyles.inputCustom}>
+                    <Box sx={EditStyles.inputCustom}>
                         <TextField variant="standard" name='clientName'
                             required
                             htmlFor='clientName'
@@ -212,7 +212,7 @@ export const EditClient = () => {
                         color="error">{errors.clientEmail.message}</Typography>}
                     </Box>
 
-                    <Typography variant="h6"
+                    <Typography component="h6"
                         sx={{textAlign: 'left'}} >
                             Client Address
                     </Typography >

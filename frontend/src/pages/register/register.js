@@ -1,10 +1,11 @@
 // Components
+import { Box } from "@mui/material"
 import { ClientRegister } from "../../components/ClientRegister/ClientRegister"
 
 export const Register = () => {
     return (
-        <div>
+        <Box component='div'>
              <ClientRegister component={ClientRegister} exact />
-        </div>
+        </Box>
     )
 }

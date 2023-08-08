@@ -1,11 +1,7 @@
 import './About.scss'
-
-// Material UI Icons
 import InfoTwoToneIcon from '@mui/icons-material/InfoTwoTone';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import CloudCircleIcon from '@mui/icons-material/CloudCircle';
-
-// Assets Images
 import logo from '../../assets/images/webcloud.png'
 import print1 from '../../assets/images/page-home.png'
 import print2 from '../../assets/images/page-list-view.png'
@@ -15,79 +11,34 @@ import { Box, Typography } from '@mui/material';
 
 export const About = () => {
     return (
-        <Box className='about'>
+        <Box className='about'
+        >
             <Box className='about-card'>
-
-                <Typography variant='h2'><InfoTwoToneIcon />&ensp;About&ensp;<InfoTwoToneIcon /></Typography>
-
-                <img className='logo-image' src={logo} alt='A doctor with his patient'></img>
-
-
+                <Typography component='h2'><InfoTwoToneIcon />&ensp;About&ensp;<InfoTwoToneIcon /></Typography>
+                <img className='logo-image' src={logo} alt='Project Logo'></img>
             </Box>
 
-            <Box className='about-card'>
+            <Box className='about-card'
+             sx={{'& > div': {
+                display: 'flex',
+                justifyContent:'space-between',
+                alignItems: 'center',
+                '& > img': {
+                    width: '260px'
+                        },
+                    }}}>
                 <Box>
-                    <Typography variant='h3'>Project Goal </Typography>
-                    <Typography variant='p'>
-                        &ensp;&ensp;&ensp;
-                        To develop a fullstack web application (CRUD) to manage client registers data such as Client's name,
-                        birth date, email and address. <br></br>
-                        &ensp;&ensp;&ensp;
-                        This Fullstack web application have front and back end connected working together.  <br></br>
-                        CRUD is an acronym for create, read, update, delete, and is the functionality that you have in the database, 
-                        which is in the case of registering customers and being able to manipulate their data later
-                        
-
+                    <Typography sx={{fontWeight:'bolder'}} component='h3'>Project Goal </Typography>
+                    <Typography>
+                        &ensp;&ensp;&ensp;A Fullstack web application that manage clients' registers. 
+                        The application is a CRUD (Create, Read, Update, Delete) application that allow users 
+                        to manage clients' information such as their name, birth date, email, and address.<br></br>
                     </Typography>
                 </Box>
 
-                <Box className='aboutImage'>
-                    <img src={print1} alt='A doctor with his patient'></img>
-
-                    <ul>
-                        <big><b>Requirements</b></big>
-                        <br />
-                        <li>
-                            Frontend development.
-                        </li><br />
-                        <li>
-                            Use react to create the frontend.
-                        </li><br />
-                        <li>
-                            Interface easy to use (UI/UX).
-                        </li><br />
-                        <li>
-                            Field validation (date, required fields, etc).
-                        </li><br />
-                        <li>
-                            Use Material UI or Tailwind
-                        </li>
-                    </ul>
-                </Box>
+                <hr />
                 <Box className='about-card-section'>
-                    <hr />
-                    <Box>
-                        <Typography variant='h3'>Frontend screenshots</Typography>
-                        <img src={print2} alt='A doctor with his patient'></img>
-                        <Typography variant='p'>
-                            &ensp;&ensp;&ensp;Data being fetch from Api.
-                        </Typography>
-
-                    </Box>
-                    <hr />
-                    <Box>
-                        <img src={print3} alt='A doctor with his patient'></img>
-                        <Typography variant='p'>&ensp;&ensp;&ensp;Patient data being fetch from Api.</Typography>
-
-                    </Box>
-                    <hr />
-                    <Box>
-                        <img src={print4} alt='A doctor with his patient'></img>
-                        <Typography variant='p'>&ensp;&ensp;&ensp;Patient delete data confirmation steps.</Typography>
-
-                    </Box>
-                    <hr />
-                    <h4><StorefrontIcon />&ensp;Frontend Technologies&ensp;<StorefrontIcon /></h4>
+                    <h4><StorefrontIcon />&ensp;Frontend Technologies</h4>
                     <ul>
                         <li>Bootstrapped with reactJs</li>
                         <li>React Router</li>
@@ -100,20 +51,34 @@ export const About = () => {
                         <li>SASS</li>
                     </ul>
                 </Box>
-
+                <hr />
                 <Box className='about-card-section'>
-                    <h4><CloudCircleIcon />&ensp;Backend Technologies&ensp;<CloudCircleIcon /></h4>
+                    <h4><CloudCircleIcon />&ensp;Backend Technologies</h4>
                     <ul>
+                        <li>NodeJS</li>
                         <li>Express</li>
                         <li>MongoDB - Mongoose</li>
                         <li>Atlas MongoDB Cloud</li>
                     </ul>
                 </Box>
-            </Box>
+                <hr />
+                <Typography variant='h3'>Frontend screenshots</Typography>
+                <Box>
+                    <img src={print3} alt='Client data being fetch from Api'></img>
+                    <Typography>&ensp;&ensp;&ensp;Client data Full card.</Typography>
+                </Box>
 
-            {/* <Box className='about-card'>
-                
-            </Box> */}
+                <Box>
+                    <img src={print4} alt='Client delete data confirmation steps'></img>
+                    <Typography>&ensp;&ensp;&ensp;Client delete data confirmation steps'.</Typography>
+                </Box>
+
+                <Box>
+                    <img src={print2} alt='Clients cards listing print screen'></img>
+                </Box>
+
+
+            </Box>
         </Box>
     )
 }

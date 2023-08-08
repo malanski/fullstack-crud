@@ -70,32 +70,32 @@ export const Client = () => {
     const handleClose = () => setOpen(false);
     return (
         <Box className="client">
-            <Typography><PersonIcon /> Client Data <PersonIcon /></Typography>
+            <Typography component='h2'><PersonIcon /> Client Data <PersonIcon /></Typography>
 
             <Box className="client-data">
                 <hr />
-                <p className='client-right'><b>Id:</b> {state._id}</p>
+                <Typography className='client-right'><b>Id:</b> {state._id}</Typography>
 
                 <Box>
-                    <p>Name:</p>
-                    <p className="client-name">
+                    <Typography>Name:</Typography>
+                    <Typography className="client-name">
                         {/* <b>{state.name[0].toUpperCase() + state.name.substring(1)}</b> */}
                         <b>{state.name.toUpperCase()}</b>
-                    </p>
+                    </Typography>
                 </Box>
 
-                <p className='client-right'>
+                <Typography className='client-right'>
                     Birth date: <b>{state.birthDate}</b>
-                </p>
+                </Typography>
                 <hr />
 
                 <Box>
-                    <p>Email:</p>
-                    <p className="client-email"> {state.email}</p>
+                    <Typography>Email:</Typography>
+                    <Typography className="client-email"> {state.email}</Typography>
                 </Box>
                 <hr />
 
-                <p>Address:</p>
+                <Typography>Address:</Typography>
                 <ul>
                     <li>
                         &ensp;

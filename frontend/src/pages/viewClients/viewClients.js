@@ -1,33 +1,34 @@
 import { ClientApi } from '../../services/api';
 import ClientCard from "../../components/ClientCard/ClientCard";
 import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
-import { Stack, Alert, LinearProgress, Box } from '@mui/material';
-import { Typography } from '@mui/material';
+import { Typography, Stack, Alert, LinearProgress, Box } from '@mui/material';
 import { useState, useEffect } from 'react';
-
 
 export const ViewClients = () => {
     const [isLoading, setIsLoading] = useState(true);
+    const [showRefreshAlert, setShowRefreshAlert] = useState(false);
     const [dataApi, setDataApi] = useState([]);
 
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsLoading(false);
-        }, 2000);
-       
+            setShowRefreshAlert(true); // Show the refresh alert after 5 seconds
+        }, 5000); // 2000 milliseconds = 2 seconds
+
         ClientApi.listClients()
-        
             .then((response) => {
-                
                 const data = response.data.clients;
                 setDataApi(data);
-                setIsLoading(true);
+                setShowRefreshAlert(false); // Data fetched successfully, hide the alert
             })
-            
             .catch(function (error) {
                 console.log(error);
-                setIsLoading(true);
+                setShowRefreshAlert(true); // Data fetch failed, show the alert
+            })
+            .finally(() => {
+                setIsLoading(false); // Set isLoading to false after fetching, whether success or failure
             });
+
         return () => clearTimeout(timer);
     }, []);
 
@@ -36,11 +37,17 @@ export const ViewClients = () => {
             <Stack sx={{ margin: 'auto', width: '80%' }} spacing={2}>
                 <Alert severity="warning">Please Wait. Loading Clients...</Alert>
                 <LinearProgress />
+                {showRefreshAlert && (
+                    <Alert severity="warning">
+                        Data could not be loaded. Please refresh the page to try again.
+                    </Alert>
+                )}
             </Stack>
         );
     }
+
     return (
-        <Box variant="div" >
+        <Box component="div">
             <Typography variant="h2" sx={{
                 padding: '20px',
                 display: 'flex',
@@ -51,7 +58,7 @@ export const ViewClients = () => {
                 color: 'white'
             }}>
                 <FormatListNumberedIcon />
-                    &ensp;Clients list view&ensp;
+                &ensp;Clients list view&ensp;
                 <FormatListNumberedIcon />
             </Typography>
 
@@ -76,4 +83,4 @@ export const ViewClients = () => {
             </Box>
         </Box>
     );
-}
+};

@@ -2,11 +2,10 @@
   
 ## Introduction  
   
-This document outlines the requirements for a Fullstack web application that will manage clients' registers. The application will be a CRUD (Create, Read, Update, Delete) application that will allow users to manage clients' information such as their name, birth date, email, and address.
+This document outlines the requirements for a Fullstack web application that manage clients' registers. 
+The application is a CRUD (Create, Read, Update, Delete) application that allow users 
+to manage clients' information such as their name, birth date, email, and address.  
 
-
-## Objectives  
-Web application (CRUD) to manage client registers (Client's name, birth date, email, and address).
 
 ## Project Basic Features
 
@@ -19,10 +18,13 @@ Web application (CRUD) to manage client registers (Client's name, birth date, em
 - Backend database cloud deployments at Atlas MongoDB platform
 - Backend server development using NodeJS and deployed at Render
 <!-- - Cache the data in-browser. -->
-
-
+## Installation  
+This project has two different folders, backend and frontend,  each one has its own README with installation tutorial and notes.  
+- Frontend: https://github.com/malanski/fullstack-crud/blob/main/frontend
+- Backend: https://github.com/malanski/fullstack-crud/tree/main/backend
+ 
 ## Front end    
-The front end of the application must be developed using React. The interface should be easy to use and follow good UI/UX principles. Field validation should be implemented to ensure that data entered by the user is valid (e.g., date fields should only accept valid dates, required fields should not be left blank, etc.).
+The front end of the application is developed using React. The interface is easy to use and follow good UI/UX principles. Field validation are implemented to ensure that data entered by the user is valid (e.g., date fields should only accept valid dates, required fields should not be left blank, etc.).
   
 The application is deployed to a cloud platform. The backend is developed using NodeJS also the data can be cached in-browser for faster access.## References  
 

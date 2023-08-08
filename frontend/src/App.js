@@ -1,6 +1,6 @@
 import './App.scss';
 import { Routes, Route, HashRouter } from 'react-router-dom';
-import { ThemeProvider } from '@mui/material';
+import { Box, ThemeProvider } from '@mui/material';
 import { theme } from './components/responsive';
 
 import { Header } from './components/Header';
@@ -21,7 +21,7 @@ import { Client } from './pages/client';
 function App() {
   return (
 
-    <div className="App">
+    <Box component='div' className="App">
       <HashRouter>
         <ThemeProvider theme={theme}>
           <Header component={ Header } exact />
@@ -41,7 +41,7 @@ function App() {
           <Footer component={Footer} exact />
         </ThemeProvider>
       </HashRouter>
-    </div>
+    </Box>
   );
 }
 

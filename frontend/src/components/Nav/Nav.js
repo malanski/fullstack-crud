@@ -11,6 +11,7 @@ import {
     useMatch,
     useResolvedPath
 } from 'react-router-dom';
+import { Box } from '@mui/material';
 
 // Cutomization for Link Actions
 function CustomLink({ children, to, ...props }) {
@@ -24,7 +25,7 @@ function CustomLink({ children, to, ...props }) {
 
 export function Nav() {
     return (
-        <nav>
+        <Box component='nav'>
             <CustomLink title="Home" to="/">
                 <span className='nav-links'>Home&ensp;<HomeTwoToneIcon /></span>
                 
@@ -39,6 +40,6 @@ export function Nav() {
                 <span className='nav-links'>View Clients&ensp;<FormatListNumberedIcon /></span>
 
             </CustomLink>
-        </nav>
+        </Box>
     )
 }
