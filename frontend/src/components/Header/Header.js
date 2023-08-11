@@ -5,6 +5,8 @@ import medcloudLogo1 from '../../assets/images/webcloud.png';
 import { Nav } from '../Nav';
 // eslint-disable-next-line
 import { Box, ThemeProvider, styled } from '@mui/material';
+import UserLogin from '../UserLogin/UserLogin';
+
 // eslint-disable-next-line
 // const EditStyles = styled("div")(({ theme }) => ({
 //     [theme.breakpoints.up("tablet")]: {
@@ -27,53 +29,29 @@ export function Header() {
     return (
         <Box component="header"
             sx={{
-                width: { xs: '100vw', sm: '100%', md: '610px' }, 
+                width: { xs: '100vw', sm: '100%', md: '610px' },
             }}>
 
-            <Box component="a" to="/about"
-                target="_blank" rel="noreferrer" title='About this project'>
-                    
-                <Box sx={{
-                        // position: 'relative',
-                        // backgroundImage: `url(../../assets/images/webcloudNeon.gif)`,
-                        // backgroundSize: 'cover',
-                        // backgroundRepeat: 'none',
-                        // backgroundPosition: 'center',
-                        '& > img': {
-                            transition: 'all ease-in-out 0.8s',
-                            ':hover': {
-                                opacity: '0',
-                                transition: 'all ease-in-out 0.8s',
-                            },
-                        },
-                    }}>
-
+            <Box
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    padding: '5px',
+                }}>
+             
+                <a href="/#/about" target="_blank" rel="noreferrer" title='About this project'>
                     <Box component="img"
                         src={medcloudLogo1} alt='Webcloud logo is three points connected by a red line'
                         width={46}
                         height={46}
                         sx={{
                             width: { xs: '100%', sm: '350', md: '610' },
-                            }}>
+                        }}>
                     </Box>
-                </Box>
+                </a>
 
-                {/* <Box sx={{
-                        position: 'absolute',
-                        top: '0',
-                        '& > img': {
-                            opacity: '0',
-                            transition: 'all ease-in-out 0.8s',
-                            width: { xs: '100vw', sm: '350px', md: '610px' },
-                            height:'200px',
-                            ':hover': {
-                                opacity: '1',
-                                transition: 'all ease-in-out 0.8s',
-                            },
-                        },
-                    }}>
-                    <img src={medcloudLogo} alt='Webcloud logo is  three points connected by a red line'></img>
-                </Box> */}
+                <UserLogin></UserLogin>
             </Box>
             <hr></hr>
             <Nav />

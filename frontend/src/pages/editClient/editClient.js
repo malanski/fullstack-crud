@@ -9,7 +9,6 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 // const today = new Date();
-
 const minBirthDate = new Date();
 minBirthDate.setFullYear(minBirthDate.getFullYear() - 18); // Subtract 18 years from today's date
 
