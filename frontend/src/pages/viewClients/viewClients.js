@@ -8,18 +8,22 @@ export const ViewClients = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [showRefreshAlert, setShowRefreshAlert] = useState(false);
     const [dataApi, setDataApi] = useState([]);
+    const [dataFetched, setDataFetched] = useState(false);
 
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsLoading(false);
-            setShowRefreshAlert(true); // Show the refresh alert after 5 seconds
-        }, 5000); // 2000 milliseconds = 2 seconds
-
+            setShowRefreshAlert(true); // Show the refresh alert after 2 seconds
+        }, 4000); // 4000 milliseconds = 4 seconds
+    
         ClientApi.listClients()
             .then((response) => {
                 const data = response.data.clients;
                 setDataApi(data);
-                setShowRefreshAlert(false); // Data fetched successfully, hide the alert
+                setDataFetched(true); // Data fetched successfully
+                if (dataFetched) {
+                    setShowRefreshAlert(false); // Data fetched within desired time frame, hide the alert
+                }
             })
             .catch(function (error) {
                 console.log(error);
@@ -28,7 +32,7 @@ export const ViewClients = () => {
             .finally(() => {
                 setIsLoading(false); // Set isLoading to false after fetching, whether success or failure
             });
-
+    
         return () => clearTimeout(timer);
     }, []);
 
@@ -79,7 +83,8 @@ export const ViewClients = () => {
                     },
                 },
             }} >
-                {dataApi.map((data) => <ClientCard key={data._id} dataApi={data} />)}
+               {dataApi.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map((data) => <ClientCard key={data._id} dataApi={data} />)}
+
             </Box>
         </Box>
     );
