@@ -9,7 +9,7 @@ export default function UserLogin() {
   const handleClose = () => setOpen(false);
   return (
     <Box title='Change User'>
-      <Box component='button'>
+      <Box >
         <Button
           onClick={handleOpen}>
           <PersonIcon />
