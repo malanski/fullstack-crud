@@ -1,20 +1,15 @@
 import './client.scss';
-
-// API
 import { ClientApi } from '../../services/api';
 
-// Icons
 import EditIcon from '@mui/icons-material/Edit';
 import PersonIcon from '@mui/icons-material/Person';
 import DeleteForeverTwoToneIcon from '@mui/icons-material/DeleteForeverTwoTone';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 
-// Material UI
 import { Button, Typography } from '@mui/material';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 
-// React and Router-Dom
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';

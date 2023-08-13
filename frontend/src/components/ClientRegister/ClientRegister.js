@@ -14,7 +14,7 @@ minBirthDate.setFullYear(minBirthDate.getFullYear() - 18); // Subtract 18 years 
 
 const maxBirthDate = new Date();
 maxBirthDate.setFullYear(maxBirthDate.getFullYear() - 150); // Subtract 150 years from today's date
-        
+
 // Form validation schema
 const schema = yup.object().shape({
     clientName: yup.string().min(2, "Client name should have 2 characters or more")
@@ -22,9 +22,9 @@ const schema = yup.object().shape({
         .matches(/\D/, "Client name cannot be composed only of numbers"),
 
     birthDate: yup.date().max(minBirthDate, "Client must be at least 18 years old")
-    // .max(today, "Client birth date must be earlier than today")
-    .min(maxBirthDate, "Client must be at most 150 years old")
-    .required("Client birth date should be required"),
+        // .max(today, "Client birth date must be earlier than today")
+        .min(maxBirthDate, "Client must be at most 150 years old")
+        .required("Client birth date should be required"),
 
     clientEmail: yup.string().email("Please inset a valid email!").required("Client email should be required!"),
     // Address Validation
@@ -79,30 +79,28 @@ export function ClientRegister() {
     const { register, handleSubmit, getValues, formState: { errors } } = useForm({
         resolver: yupResolver(schema),
         defaultValues: {
-          clientName: '',
-          birthDate: '',
-          clientEmail: '',
-          address: {
-            zipCode: '',
-            country: '',
-            county: '',
-            city: '',
-            streetAddress: '',
-            addition: ''
-          },
+            clientName: '',
+            birthDate: '',
+            clientEmail: '',
+            address: {
+                zipCode: '',
+                country: '',
+                county: '',
+                city: '',
+                streetAddress: '',
+                addition: ''
+            },
         },
-      });
-      
-      
+    });
+
+
 
     const submitForm = async (data) => {
-        // const dataBirthDate = new Date(data.birthDate);
-        // const birthDate = dataBirthDate.toISOString().slice(0, 10);
         setIsLoading(true);
         const dataBirthDate = getValues('birthDate');
         const birthDate = dataBirthDate.split('-');
         const newBirthDate = `${birthDate[2]}-${birthDate[1]}-${birthDate[0]}`;
-    
+
         const dataRegister = {
             name: data.clientName,
             birthDate: newBirthDate,
@@ -118,7 +116,7 @@ export function ClientRegister() {
         };
 
         try {
-            
+
             await new Promise((resolve) => setTimeout(resolve, 3000));
             await ClientApi.registerClient(dataRegister);
             navigate('/viewClients')
@@ -137,13 +135,13 @@ export function ClientRegister() {
 
     return (
         <Box sx={{
-                padding: '20px',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                flexDirection: 'column',
-                color: 'white',
-            }}>
+            padding: '20px',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flexDirection: 'column',
+            color: 'white',
+        }}>
 
             <Typography variant='h3'
                 sx={{
@@ -158,7 +156,7 @@ export function ClientRegister() {
                 Complete the form correctly and click the submit button to create a new client data register.
             </Typography>
 
-            <FormStyles sx={{width: '100%'}} >
+            <FormStyles sx={{ width: '100%' }} >
                 <Box component="form"
                     onSubmit={handleSubmit(submitForm)}
                     sx={{
@@ -168,7 +166,7 @@ export function ClientRegister() {
                         borderRadius: '10px',
                         margin: '31px auto 30px auto',
                     }}>
-                        
+
                     <Box>
                         <TextField required
                             variant="outlined"
@@ -176,11 +174,8 @@ export function ClientRegister() {
                             name='clientName'
                             label="Client's name"
                             {...register('clientName')} />
-                        {/* <Typography >
-                                {errors.clientName?.message}
-                        </Typography> */}
-                        {errors.clientName && <Typography sx={{ height:'30px'}}
-                        color="error">{errors.clientName.message}</Typography>}
+                            {errors.clientName && <Typography sx={{ height: '30px' }}
+                                color="error">{errors.clientName.message}</Typography>}
                     </Box>
 
                     <Box>
@@ -191,11 +186,8 @@ export function ClientRegister() {
                             type='date'
                             label="Client's birth date"
                             {...register('birthDate')} />
-                        {/* <Typography sx={{color: 'orange', fontSize: '15px', height:'30px'}}>
-                            {errors.birthDate?.message}
-                        </Typography> */}
-                        {errors.birthDate && <Typography sx={{ height:'30px'}}
-                         color="error">{errors.birthDate.message}</Typography>}
+                            {errors.birthDate && <Typography sx={{ height: '30px' }}
+                                color="error">{errors.birthDate.message}</Typography>}
                     </Box>
 
                     <Box>
@@ -205,16 +197,13 @@ export function ClientRegister() {
                             name='clientEmail'
                             label="Client email"
                             {...register('clientEmail')} />
-                        {/* <Typography sx={{color: 'orange', fontSize: '15px', height:'30px'}}>
-                            {errors.clientEmail?.message}
-                        </Typography> */}
-                        {errors.clientEmail && <Typography sx={{ height:'30px'}}
-                         color="error">{errors.clientEmail.message}</Typography>}
+                            {errors.clientEmail && <Typography sx={{ height: '30px' }}
+                                color="error">{errors.clientEmail.message}</Typography>}
                     </Box>
 
                     <Typography variant='h4'
-                        sx={{textAlign: 'right'}}>
-                            Client Address
+                        sx={{ textAlign: 'right' }}>
+                        Client Address
                     </Typography>
                     <Box>
                         <TextField required
@@ -223,8 +212,8 @@ export function ClientRegister() {
                             name='zipCode'
                             label="Zip/ postcode"
                             {...register('zipCode')} />
-                            {errors.zipCode && <Typography sx={{ height:'60px'}}
-                            color="error">{errors.zipCode.message}</Typography>}
+                            {errors.zipCode && <Typography sx={{ height: '60px' }}
+                                color="error">{errors.zipCode.message}</Typography>}
                     </Box>
 
                     <Box>
@@ -234,8 +223,8 @@ export function ClientRegister() {
                             name='country'
                             label="Country"
                             {...register('country')} />
-                            {errors.country && <Typography sx={{ height:'30px'}}
-                            color="error">{errors.country.message}</Typography>}
+                            {errors.country && <Typography sx={{ height: '30px' }}
+                                color="error">{errors.country.message}</Typography>}
                     </Box>
 
                     <Box>
@@ -245,8 +234,8 @@ export function ClientRegister() {
                             name='county'
                             label=" County (State)"
                             {...register('county')} />
-                            {errors.county && <Typography sx={{ height:'30px'}}
-                            color="error">{errors.county.message}</Typography>}    
+                            {errors.county && <Typography sx={{ height: '30px' }}
+                                color="error">{errors.county.message}</Typography>}
                     </Box>
 
                     <Box>
@@ -256,8 +245,8 @@ export function ClientRegister() {
                             name='city'
                             label="City"
                             {...register('city')} />
-                            {errors.city && <Typography sx={{ height:'30px'}}
-                            color="error">{errors.city.message}</Typography>}
+                            {errors.city && <Typography sx={{ height: '30px' }}
+                                color="error">{errors.city.message}</Typography>}
                     </Box>
 
                     <Box>
@@ -268,8 +257,8 @@ export function ClientRegister() {
                             label="Street address"
                             placeholder='Rua Dos ABCs, n° 00, Bairro'
                             {...register('streetAddress')} />
-                            {errors.streetAddress && <Typography sx={{ height:'30px'}}
-                            color="error">{errors.streetAddress.message}</Typography>}
+                            {errors.streetAddress && <Typography sx={{ height: '30px' }}
+                                color="error">{errors.streetAddress.message}</Typography>}
                     </Box>
 
                     <Box>
@@ -287,10 +276,11 @@ export function ClientRegister() {
                         sx={{
                             fontSize: '20px',
                             fontWeight: '700',
-                            background: '#2B93DD'}}
-                            disabled={isLoading}>
-                            {isLoading ? 
-                                <CircularProgress size={24} /> : 'Submit'}
+                            background: '#2B93DD'
+                        }}
+                        disabled={isLoading}>
+                        {isLoading ?
+                            <CircularProgress size={24} /> : 'Submit'}
                     </Button>
                 </Box>
             </FormStyles>

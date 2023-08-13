@@ -49,11 +49,19 @@ export default function UserLogin() {
               label="password"
             />
 
+            <Button sx={{ 
+              width: '176px', height: '40px', margin: '10px 0 0 0',
+              background:'green' }} variant="outlined"
+              onClick={handleClose}
+              title="Enter">
+              Enter
+            </Button>
+
             <Button sx={{ width: '176px', height: '40px', margin: '10px 0 0 0' }} variant="outlined"
               color="error"
               onClick={handleClose}
-              title="Cancel delete">
-              Close
+              title="Cancel">
+              Cancel
             </Button>
           </Box>
         </Modal>

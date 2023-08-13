@@ -1,4 +1,5 @@
-import './Footer.scss'
+import webcloudLogo from '../../assets/images/webcloudNeon.gif';
+// eslint-disable-next-line
 import webloudLogo2 from '../../assets/images/webcloud2.png'
 import GitHubIcon from '@mui/icons-material/GitHub';
 import ConstructionIcon from '@mui/icons-material/Construction';
@@ -49,7 +50,7 @@ export function Footer() {
                     <Box component='a' href="https://malanski.github.io/portfolio/" title="portfolio" target="_blank" rel="noreferrer">
                         <ConstructionIcon />&ensp;&ensp;Portfolio
                     </Box>
-                    <Box component='a' href="https://www.linkedin.com/in/Boxisses-malanski" title="linkedin" target="_blank" rel="noreferrer">
+                    <Box component='a' href="https://www.linkedin.com/in/ulisses-malanski" title="linkedin" target="_blank" rel="noreferrer">
                         <LinkedInIcon />&ensp;&ensp;Linkedin
                     </Box>
                     <Box component='a' to='/about' href='/about'>
@@ -61,11 +62,14 @@ export function Footer() {
                         marginTop: '50px',
                         width: '40vw',
                     '& > img' : {
-                        width: '100%'
+                        width: '100%',
+                        borderRadius: '10px'
                         },
                         }}
                     >
-                    <img src={webloudLogo2} title='Webcloud' alt='Webcloud logo'></img>
+                    <img src={webcloudLogo}
+                        title='Webcloud'
+                        alt='Webcloud logo'></img>
                 </Box>
             </Box>
             <br></br>
