@@ -2,8 +2,7 @@
  
 ## Description
   
-A Front-end application for visual interaction with the Client Management API and deal with Error handling and Form validations.
-   
+A Front-end application for visual interaction with the Client Management API that registers customers for relationship control between companies and customers. This ReactJs app has a responsive interface and deals with Error handling and Form validations. Through forms, this application communicates with the backend and can create, read, update, and delete data from the API.
 <hr>
   
 ## Access Application
