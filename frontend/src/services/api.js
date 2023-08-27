@@ -5,7 +5,7 @@ const axios = Axios.create({
     // baseURL: 'http://localhost:8000',
     
     //  Render Backend Deploy
-    baseURL: 'https://bakcend-crud.onrender.com'
+    baseURL: 'https://bakcend-crud.onrender.com',
     
     timeout: '8000ms',
 });
