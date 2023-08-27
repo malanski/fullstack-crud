@@ -14,7 +14,7 @@ export const ViewClients = () => {
         const timer = setTimeout(() => {
             setIsLoading(false);
             setShowRefreshAlert(true); // Show the refresh alert after 2 seconds
-        }, 4000); // 4000 milliseconds = 4 seconds
+        }, 2000); // 4000 milliseconds = 4 seconds
     
         ClientApi.listClients()
             .then((response) => {
