@@ -9,7 +9,7 @@ export function validationSchema(){
     // Form validation schema
     const schema = yup.object().shape({
         clientName: yup.string().min(2, "Client name should have 2 characters or more")
-        .max(70, "Client name should be at maximum 70 characters long").required("Client name should be required")
+        .max(225, "Client name should be at maximum 225 characters long").required("Client name should be required")
         .matches(/\D/, "Client name cannot be composed only of numbers"),
         birthDate: yup.date().max(today, "Client birth date must be earlier than today")
         .min(minBirthDate, "Client must be at least 18 years old")

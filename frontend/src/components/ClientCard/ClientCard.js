@@ -36,6 +36,10 @@ export default function ClientCard(props) {
     email } = props.dataApi
   const navigate = useNavigate();
 
+    const nomeArray = name.split(" ");
+    const firstEightNames = nomeArray.slice(0, 8);
+    const shortName = firstEightNames.join(" ");
+
   return (
     <CardStyles sx={{
       textAlign: 'left',
@@ -54,6 +58,8 @@ export default function ClientCard(props) {
           <Typography sx={{ fontSize: 14, textAlign: 'right' }} gutterBottom>
             <small>Client Id:</small> <br /> <b>{_id}</b>
           </Typography>
+          
+          <small>Name: </small> <br />
 
           <Typography variant="h6"
             sx={{
@@ -63,11 +69,10 @@ export default function ClientCard(props) {
               borderRadius: '5px',
               textTransform: 'capitalize',
               fontWeight: 'bolder',
-              height: '75px'
+              minHeight: '75px'
             }} >
-            <small>Name: </small> <br />
             <Typography variant="span" style={{ textAlign: 'center', background: 'white', }}>
-              {name}
+              {shortName}
             </Typography>
           </Typography>
 

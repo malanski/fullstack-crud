@@ -18,7 +18,7 @@ maxBirthDate.setFullYear(maxBirthDate.getFullYear() - 150); // Subtract 150 year
 // Form validation schema
 const schema = yup.object().shape({
     clientName: yup.string().min(2, "Client name should have 2 characters or more")
-        .max(70, "Client name should be at maximum 70 characters long").required("Client name should be required")
+        .max(171, "Client name should be at maximum 225 characters long").required("Client name should be required")
         .matches(/\D/, "Client name cannot be composed only of numbers"),
         
 
@@ -43,16 +43,19 @@ const schema = yup.object().shape({
 
 const EditStyles = styled("section")(({ theme }) => ({
     form: {
+        backgroundColor: 'black',
         div: {
             width: '100%',
             backgroundColor: 'black',
             borderRadius: '10px 5px',
-            padding: '0 2px',
             div: {
+
                 label: {
                     width: '100%',
-                    color: 'blue',
-                    textAlign: 'right',
+                    color: 'white',
+                    textAlign: 'center',
+                    marginRight: '19px',
+
                 },
                 div: {
                     opacity: '0.5',
@@ -165,7 +168,7 @@ export const EditClient = () => {
                     </Typography>
 
                 </Box>
-                <Typography>Change the fields you want to update and save your changes in the button below.</Typography>
+                <Typography>After updating the fields you desire, click the button below to save your changes.</Typography>
                 <Box component="form" onSubmit={handleSubmit(submitForm)}
                     sx={{
                         width: '426px',
@@ -176,7 +179,7 @@ export const EditClient = () => {
                         margin: '31px auto 30px auto',
                     }}>
 
-                    <Box sx={EditStyles.inputCustom}>
+                    <Box>
                         <TextField variant="standard" name='clientName'
                             required
                             htmlFor='clientName'

@@ -8,6 +8,7 @@ const password = process.env.DB_PASS
 
 const url = `mongodb+srv://${userName}:${password}@cluster0.eojloz1.mongodb.net/?retryWrites=true&w=majority`;
 
+mongoose.set('strictQuery', false); // prepare for mongoose 7 change
 mongoose.connect(url, {},  (error) => {
     if (error) {
         console.log("Fail to connect to mongoose");
