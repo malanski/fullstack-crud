@@ -5,11 +5,11 @@ const axios = Axios.create({
     // baseURL: 'http://localhost:8000',
     
     //  Render backend cloud deploy
-    // baseURL: 'https://bakcend-crud.onrender.com',
+    baseURL: 'https://bakcend-crud.onrender.com',
     
-    baseURL: process.env.REACT_APP_API_URL,
-    
-    timeout: '12000ms',
+    // baseURL: process.env.REACT_APP_API_URL,
+
+    timeout: '900ms',
 });
 
 export const ClientApi = {
