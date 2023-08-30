@@ -8,6 +8,7 @@ const axios = Axios.create({
     // baseURL: 'https://bakcend-crud.onrender.com',
     
     baseURL: process.env.REACT_APP_API_URL,
+    
     timeout: '12000ms',
 });
 

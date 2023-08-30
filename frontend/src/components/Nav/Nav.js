@@ -108,10 +108,10 @@ export function Nav() {
 
                 </CustomLink>
                 <CustomLink title="Add new Client" to="/register">
-                    <span>New Client&ensp;<AddIcon /></span>
+                    <span>Add Client&ensp;<AddIcon /></span>
                 </CustomLink>
                 <CustomLink title="View All Clients" to="/viewClients">
-                    <span>View Clients&ensp;<FormatListNumberedIcon /></span>
+                    <span>Clients List&ensp;<FormatListNumberedIcon /></span>
                 </CustomLink>
             </Box>
         </NavStyles>
