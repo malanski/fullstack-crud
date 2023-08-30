@@ -9,7 +9,7 @@ const axios = Axios.create({
     
     // baseURL: process.env.REACT_APP_API_URL,
 
-    timeout: '900ms',
+    timeout: '8000ms',
 });
 
 export const ClientApi = {
