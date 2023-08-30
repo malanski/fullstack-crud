@@ -11,14 +11,26 @@ import {
 import { useNavigate } from 'react-router-dom';
 
 const CardStyles = styled("div")(({ theme }) => ({
+
   [theme.breakpoints.down("tablet")]: {
-    width: '90%',
+    width: '100%',
+    
     div: {
+      
       div: {
+        h6: {
+          minHeight: '50px',
+          fontSize:'16px'
+        },
         p: {
-          fontSize: '16px',
+          fontSize: '18px',
           padding: '5px',
         },
+
+        span: {
+          fontsize: '18px',
+        },
+        
         details: {
           width: '90%',
           margin: '0 auto'
@@ -29,16 +41,18 @@ const CardStyles = styled("div")(({ theme }) => ({
 }));
 
 export default function ClientCard(props) {
+
   const {
     _id,
     name,
     birthDate,
     email } = props.dataApi
+
   const navigate = useNavigate();
 
-    const nomeArray = name.split(" ");
-    const firstEightNames = nomeArray.slice(0, 8);
-    const shortName = firstEightNames.join(" ");
+  const nomeArray = name.split(" ");
+  const firstEightNames = nomeArray.slice(0, 4);
+  const shortName = firstEightNames.join(" ");
 
   return (
     <CardStyles sx={{
@@ -54,11 +68,14 @@ export default function ClientCard(props) {
       },
     }}>
       <Card >
-        <CardContent>
-          <Typography sx={{ fontSize: 14, textAlign: 'right' }} gutterBottom>
+        <CardContent >
+          <Typography
+            sx={{
+              textAlign: 'right'
+            }}>
             <small>Client Id:</small> <br /> <b>{_id}</b>
           </Typography>
-          
+
           <small>Name: </small> <br />
 
           <Typography variant="h6"
@@ -69,27 +86,44 @@ export default function ClientCard(props) {
               borderRadius: '5px',
               textTransform: 'capitalize',
               fontWeight: 'bolder',
-              minHeight: '75px'
+              minHeight: '95px'
             }} >
-            <Typography variant="span" style={{ textAlign: 'center', background: 'white', }}>
+            <Typography
+              variant="span"
+              sx={{
+                display: 'block',
+                textAlign: 'center',
+                width:'100%',
+                background: 'white',
+              }}>
               {shortName}
             </Typography>
           </Typography>
 
           <hr style={{ color: '#2B93DD' }} />
+
           <Typography sx={{ mb: 1.5 }} >
             <small>Birth Date:</small>
             &ensp;<big>{birthDate}</big>
           </Typography>
-          <Typography sx={{ mb: 1.5, height: '70px' }}>
+
+          <Typography sx={{ width: '100%', mb: 1.5, height: '70px' }}>
             <small>Email: </small><br />
-            <Typography variant="span" style={{ padding: '5px', textAlign: 'center', background: 'white', }}>
+            <Typography variant="span"
+              sx={{
+                display: 'block',
+                borderRadius: '10px',
+                padding: '5px',
+                textAlign: 'center',
+                background: 'white',
+                width: '100%'
+              }}>
               {email}
             </Typography>
           </Typography>
         </CardContent>
 
-        <CardActions style={{ display:'flex', justifyContent: 'space-between' }}>
+        <CardActions style={{ display: 'flex', justifyContent: 'space-between' }}>
           <Button variant="outlined"
             sx={{
               width: '45%',

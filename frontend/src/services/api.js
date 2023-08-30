@@ -2,11 +2,12 @@ import Axios from 'axios';
 
 const axios = Axios.create({
     //  LOCAL URL DEVELOPMENT
-    baseURL: 'http://localhost:8000',
+    // baseURL: 'http://localhost:8000',
     
     //  Render backend cloud deploy
     // baseURL: 'https://bakcend-crud.onrender.com',
     
+    baseURL: process.env.REACT_APP_API_URL,
     timeout: '8000ms',
 });
 
